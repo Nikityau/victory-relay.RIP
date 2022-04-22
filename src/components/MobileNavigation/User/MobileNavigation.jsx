@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Link, useHistory} from "react-router-dom";
+import {Link, useHistory, useLocation} from "react-router-dom";
 
 import home from '../../../assets/icons/mobile-icons/home.svg'
 import red_home from "../../../assets/icons/mobile-icons/red-home.svg"
@@ -12,9 +12,7 @@ import classes from "./MobileNavigation.module.css";
 
 const MobileNavigation = () => {
 
-    const history = useHistory();
-
-    const [left, setLeft] = useState(0);
+    const location = useLocation();
 
     const line = useRef(null);
     const home_bl = useRef(null);
@@ -23,38 +21,48 @@ const MobileNavigation = () => {
 
     useEffect(() => {
         lineLeft()
-    }, [left, history])
+        console.log(location)
+        console.log('left')
+    }, [location])
 
     const lineLeft = () => {
-        if(!line.current) return;
+        if(!line.current || !home_bl.current || !enter_bl.current || !media_bl.current) return;
 
-        if(left == 0) {
-            const lc_storage = localStorage.getItem('mob_line_user');
-            lc_storage ? setLeft(lc_storage) : toHome()
+        const path = location.pathname;
+
+        if(path.includes('relay')) {
+            toHome()
+            return
         }
 
-        const coords = localStorage.getItem('mob_line_user')
-        const offset = coords || left - line.current.clientWidth / 2
+        if(path.includes('team')) {
+            toMedia()
+            return;
+        }
 
-        line.current.style.left = offset + 'px';
+        if(path.includes('login')) {
+            toLogin()
+            return
+        }
     }
 
 
 
     const toHome  = () => {
-        const offset = home_bl.current.offsetLeft + home_bl.current.clientWidth / 2 - line.current.clientWidth / 2;
-        localStorage.setItem('mob_line_user', offset)
-        setLeft(offset);
+        const offsetLeft = home_bl.current.offsetLeft + home_bl.current.clientWidth / 2;
+        setLeft(offsetLeft)
     }
     const toMedia = () => {
-        const offset = media_bl.current.offsetLeft + media_bl.current.clientWidth / 2 + 3 - line.current.clientWidth / 2;
-        localStorage.setItem('mob_line_user', offset)
-        setLeft(offset);
+        const offsetLeft = media_bl.current.offsetLeft + media_bl.current.clientWidth / 2;
+        setLeft(offsetLeft)
     }
     const toLogin = () => {
-        const offset = enter_bl.current.offsetLeft + enter_bl.current.clientWidth / 2 - line.current.clientWidth / 2;
-        localStorage.setItem('mob_line_user', offset)
-        setLeft(offset);
+        const offsetLeft = enter_bl.current.offsetLeft + enter_bl.current.clientWidth / 2;
+        setLeft(offsetLeft)
+    }
+
+    const setLeft = (offsetLeft) => {
+        line.current.style.left = offsetLeft - line.current.clientWidth / 2 + 'px';
     }
 
     return (
@@ -64,17 +72,17 @@ const MobileNavigation = () => {
                 <div className={classes.innerContainer}>
                     <div className={classes.home} ref={home_bl} onClick={toHome}>
                         <Link to={'/user/relay'}>
-                            <img src={home} alt="image"/>
+                            <img src={location.pathname.includes('relay') ? red_home : home} alt="image"/>
                         </Link>
                     </div>
                     <div className={classes.media} ref={media_bl} onClick={toMedia}>
                         <Link to={'/user/teams'}>
-                            <img src={media} alt="image"/>
+                            <img src={location.pathname.includes('team') ? red_media : media} alt="image"/>
                         </Link>
                     </div>
                     <div className={classes.enter} ref={enter_bl} onClick={toLogin}>
                         <Link to={'/user/login'}>
-                            <img src={enter} alt="image"/>
+                            <img src={location.pathname.includes('login') ? red_enter : enter} alt="image"/>
                         </Link>
                     </div>
                 </div>
