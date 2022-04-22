@@ -1,0 +1,152 @@
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.choiceSide {
+    position: relative;
+    left: 1%;
+    transition: all .3s ease-in-out;
+}
+.title {
+    position: relative;
+    top: -10px;
+    display: flex;
+    justify-content: space-between;
+}
+.title h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+.error {
+    position: relative;
+    left: 10px;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    color: red;
+}
+.error_show {
+    opacity: 1;
+}
+
+.stageComplete {
+    transition: all .3s ease-in-out;
+    color: #33C458;
+    opacity: 0;
+}
+.complete {
+    opacity: 1;
+}
+.stage {
+    width: 390px;
+    height: 98px;
+}
+.chosenStage{
+
+}
+.chooseTeam {
+    margin-top: 50px;
+}
+.teamSelect {
+
+}
+
+.timerContainer {
+    margin-top: 50px;
+}
+.timer {
+
+}
+.button {
+
+}
+
+.resultsSide {
+    position: relative;
+    left: -10%;
+}
+.resultsTitle {
+
+}
+.teamBoard {
+
+}
+.timerMobile {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        margin-top: 30px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .choiceSide {
+        width: 80%;
+        left: 0;
+    }
+    .title {
+
+    }
+    .title h3 {
+
+    }
+    .resultsSide .title {
+        display: none;
+    }
+    .stage {
+        width: 100%;
+        height: 83px;
+    }
+    .chosenStage{
+
+    }
+    .chooseTeam {
+        width: 100%;
+    }
+    .teamSelect {
+        width: 100%;
+    }
+    .timerContainer {
+        position: fixed;
+        display: block;
+        bottom: 190px;
+        left: 0;
+        z-index: 10;
+    }
+    .timer {
+
+    }
+    .button {
+
+    }
+    .resultsSide {
+        left: 0;
+        width: 80%;
+        margin-top: 20px;
+    }
+    .resultsTitle {
+
+    }
+    .teamBoard {
+
+    }
+    .timerMobile {
+        display: block;
+        position: absolute;
+        left: 20px;
+        bottom: -50px;
+    }
+    .timerMobile span {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+    }
+}

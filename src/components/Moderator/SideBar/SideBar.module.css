@@ -1,0 +1,53 @@
+.sideBarContainer {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    transition: all .3s ease-in-out;
+    background: #E4ECFB;
+    overflow: hidden;
+}
+.sideBarClose {
+    width: 0;
+}
+.wrapper {
+    width: 80%;
+    margin: 30px auto 0;
+    height: 200px;
+}
+.title {
+    text-align: center;
+}
+.title h3 {
+    font-family: "Segoe UI",sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-transform: lowercase;
+}
+.stagesInfo {
+    margin-top: 40px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 656px;
+}
+.stagesInfo::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 20px;
+    background: #B9C1D0;
+}
+.stagesInfo::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 20px;
+    box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.37),
+    inset 3px 1px 15px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(315deg, #FF4646 0%, #FFAA5B 100%);
+}
+.exitBtn {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 500px)  {
+    .sideBarContainer {
+        display: none;
+    }
+}

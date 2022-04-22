@@ -1,0 +1,40 @@
+<svg width="178" height="178" viewBox="0 0 178 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_di_123_318)">
+<circle cx="88.585" cy="85.1013" r="84.5161" fill="url(#paint0_linear_123_318)"/>
+</g>
+<circle cx="88.5858" cy="85.1014" r="48.1263" fill="#18204D"/>
+<g clip-path="url(#clip0_123_318)">
+<path d="M126.623 90.3954C127.883 83.0189 129.143 75.6414 130.4 68.2631C120.164 57.2722 105.394 72.8419 95.1561 61.8501L93.074 61.4729L85.7206 104.568L87.6739 105.696L91.3785 83.9824L91.3784 83.9844C101.618 94.9743 116.387 79.4057 126.623 90.3954Z" fill="#00CFFD"/>
+</g>
+<g clip-path="url(#clip1_123_318)">
+<path d="M52.548 92.833C50.7248 85.575 48.9031 78.316 47.0828 71.056C56.4449 59.3119 72.3671 73.7019 81.7307 61.9567L83.7777 61.4208L94.4172 103.825L92.5561 105.099L87.1959 83.7338L87.1962 83.7358C77.8303 95.4792 61.9099 81.0901 52.548 92.833Z" fill="#00CFFD"/>
+</g>
+<defs>
+<filter id="filter0_di_123_318" x="0.0688477" y="0.585205" width="177.032" height="177.032" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_123_318"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_123_318" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3" dy="3"/>
+<feGaussianBlur stdDeviation="5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.72 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow_123_318"/>
+</filter>
+<linearGradient id="paint0_linear_123_318" x1="144.723" y1="169.617" x2="6.53501" y2="-1.40746" gradientUnits="userSpaceOnUse">
+<stop stop-color="#CDDCF7"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<clipPath id="clip0_123_318">
+<rect width="58.0202" height="58.0202" fill="white" transform="translate(84.5024 48.7742) rotate(15)"/>
+</clipPath>
+<clipPath id="clip1_123_318">
+<rect width="58.0202" height="58.0202" fill="white" transform="matrix(-0.943211 0.332195 0.332195 0.943211 91.3491 48.1017)"/>
+</clipPath>
+</defs>
+</svg>

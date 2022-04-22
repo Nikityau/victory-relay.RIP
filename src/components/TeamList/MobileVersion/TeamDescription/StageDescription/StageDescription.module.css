@@ -1,0 +1,124 @@
+.decrContainer {
+    width: 100%;
+    display: flex;
+}
+.stageImg {
+    width: 70px;
+}
+.stageImg img {
+    width: 70px;
+    filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.39));
+}
+.stageDescr {
+    position: relative;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.stage {
+    display: flex;
+    align-items: baseline;
+}
+.stage h4, .stage p {
+    font-family: "Segoe UI", sans-serif;
+    color: #2D4191;
+}
+.stage h4 {
+    font-weight: 600;
+    font-size: 20px;
+}
+.stage p {
+    padding-left: 10px;
+    font-weight: 350;
+    font-size: 15px;
+}
+.team {
+
+}
+.team p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+.time {
+
+}
+.time p {
+    font-family: "Open Sans",sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #2D4191;
+}
+.line {
+    margin-top: 5px;
+    position: relative;
+    left: -7px;
+    width: 152px;
+    height: 4px;
+    background: #FF8455;
+    border-radius: 20px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .decrContainer {
+        width: 90%;
+        display: flex;
+    }
+    .stageImg {
+        width: 70px;
+    }
+    .stageImg img {
+        width: 70px;
+        filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.63));
+    }
+    .stageDescr {
+        position: relative;
+        left: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .stage {
+        display: flex;
+        align-items: baseline;
+    }
+    .stage h4, .stage p {
+        font-family: "Segoe UI", sans-serif;
+        color: #2D4191;
+    }
+    .stage h4 {
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .stage p {
+        padding-left: 10px;
+        font-weight: 350;
+        font-size: 15px;
+    }
+    .team {
+
+    }
+    .team p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+    }
+    .time {
+
+    }
+    .time p {
+        font-family: "Open Sans",sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: #2D4191;
+    }
+    .line {
+        margin-top: 5px;
+        position: relative;
+        left: -7px;
+        width: 100%;
+        height: 4px;
+        background: #FF8455;
+        border-radius: 20px;
+    }
+}

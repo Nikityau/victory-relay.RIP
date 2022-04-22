@@ -1,0 +1,68 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBlock {
+    width: 500px;
+    height: 300px;
+}
+.chooseStage {
+}
+.title {
+    position: relative;
+    top: -5px;
+    display: flex;
+    justify-content: space-between;
+}
+.title h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+.error {
+    color: #CA2128;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+.error_show {
+    opacity: 1;
+}
+
+.select {
+
+}
+.button {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        height: 100%;
+    }
+
+    .mainBlock {
+        width: 85%;
+    }
+    .chooseStage {
+    }
+    .title {
+
+    }
+    .title h3 {
+
+    }
+    .select {
+
+    }
+    .button {
+        margin-top: 30px;
+    }
+
+}

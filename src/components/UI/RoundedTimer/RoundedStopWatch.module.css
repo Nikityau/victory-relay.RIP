@@ -1,0 +1,55 @@
+.stopWatchContainer {
+
+}
+.stopWatch {
+    width: 100%;
+    text-align: center;
+}
+.stopWatch span {
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    color: #000;
+}
+.button {
+
+}
+.rectangle, .rounded {
+    transition: all .3s;
+}
+.rectangle {
+    display: block;
+}
+.rounded {
+    display: none;
+}
+
+.stageComplete {
+    pointer-events: none;
+    opacity: .6;
+}
+
+@media screen and (max-width: 500px) {
+    .stopWatch {
+        position: absolute;
+        left: 20px;
+    }
+    .stopWatch span {
+        font-family: "Segoe UI", sans-serif;
+        font-weight: 600;
+        font-size: 35px;
+        color: #000;
+    }
+    .rectangle {
+        display: none;
+    }
+    .rounded {
+        position: fixed;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        bottom: 5px;
+        z-index: 15;
+    }
+}

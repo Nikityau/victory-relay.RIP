@@ -1,0 +1,92 @@
+.header {
+    height: 77px;
+}
+
+.innerContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+.slider {
+    position: relative;
+    max-width: 1380px;
+}
+.slider:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100px;
+    background:  linear-gradient(90.04deg, #FFFFFF 0.03%, rgba(255, 255, 255, 0) 92.34%);;
+}
+.slider:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    background: linear-gradient(-90.04deg, #FFFFFF 0.03%, rgba(255, 255, 255, 0) 92.34%);
+}
+
+.burger {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.burger a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.burgerLine {
+    position: relative;
+    width: 23px;
+    height: 4px;
+    background: #FF4B6C;
+    border-radius: 169px;
+}
+.burgerLine:nth-child(1) {
+    top: 15%;
+}
+.burgerLine:nth-child(3) {
+    top: -15%;
+}
+
+.title {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.title h1 {
+    color: #CA2128;
+    font-family: Alumni Sans, serif;
+    font-weight: 500;
+    font-size: 64px;
+    text-transform: uppercase;
+}
+
+.logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    width: 79px;
+    height: 60px;
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        display: none;
+    }
+}

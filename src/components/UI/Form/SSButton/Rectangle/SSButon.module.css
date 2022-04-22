@@ -1,0 +1,24 @@
+.container{
+    width: 302px;
+    height: 71px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.container h3 {
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+.start {
+    color: #000;
+    background: linear-gradient(315deg, #76FF46 0%, #FFF85B 100%);
+    box-shadow: 0px 20px 40px #B7FBAC, inset 0px -3px 10px rgba(0, 0, 0, 0.37), inset 3px 1px 15px rgba(255, 255, 255, 0.5);
+}
+.stop {
+    color: #fff;
+    background: linear-gradient(315deg, #FF4646 0%, #FF5B5B 100%);
+    box-shadow: 0px 20px 40px #FBACAC, inset 0px -3px 10px rgba(0, 0, 0, 0.37), inset 3px 1px 15px rgba(255, 255, 255, 0.5);
+}

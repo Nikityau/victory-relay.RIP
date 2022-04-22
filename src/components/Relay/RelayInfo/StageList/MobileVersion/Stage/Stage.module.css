@@ -1,0 +1,128 @@
+.stageContainer {
+    position: relative;
+    overflow: hidden;
+}
+.stageImage {
+
+}
+.stageImage img {
+
+}
+.stageDescription {
+
+}
+.containerPlug {
+
+}
+.containerInfo {
+
+}
+
+.descr {
+
+}
+.descr h3 {
+
+}
+.descr h4 {
+
+}
+.stageProgressBar {
+
+}
+.teamsContainer {
+
+}
+
+@media screen and (max-width: 500px) {
+    .stageContainer {
+        position: relative;
+        width: 95%;
+        margin-top: 40px;
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: .3s ease-in-out;
+        height: 345px;
+        box-shadow: 0 30px 60px 0px #98A7C5;
+    }
+    .stageOpen {
+        height: 580px;
+    }
+    .stageClosed {
+        height: 300px;
+    }
+    .stageImage {
+        position: absolute;
+        top: 0;
+        left: -70px;
+        z-index: 1;
+    }
+    .stageImage img {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 169px;
+        transition: .3s ease-in-out;
+    }
+    .imgOpen img {
+        top: 14px;
+        left: 90px;
+        width: 50px;
+    }
+    .imgClosed img {
+        width: 169px;
+    }
+    .stageDescription {
+        position: relative;
+        width: 100%;
+        display: flex;
+        z-index: 2;
+        transition: .3s ease-in-out;
+    }
+    .containerPlug {
+        width: 30%;
+        height: 200px;
+    }
+    .containerInfo {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+    .hr {
+        position: relative;
+        left: 17px;
+        width: 177px;
+        height: 2px;
+        margin-top: 8px;
+        background: #C1C1C1;
+    }
+    .descr {
+        width: 200px;
+        position: relative;
+        display: flex;
+        height: 34px;
+        align-items: end;
+    }
+    .descr h3 {
+        font-family: Work Sans, sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        color: #2D4191;
+    }
+    .descr h4 {
+        position: relative;
+        left: 20px;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+        font-size: 15px;
+        color: #2D4191;
+    }
+    .stageProgressBar {
+        margin-top: 5px;
+    }
+    .teamsContainer {
+        margin-top: 20px;
+    }
+}

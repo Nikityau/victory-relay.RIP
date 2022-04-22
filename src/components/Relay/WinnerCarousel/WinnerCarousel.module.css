@@ -1,0 +1,11 @@
+.containerCarousel {
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(-90deg, #FF9494 30%, #FEC533);
+}
+
+@media screen and (max-width: 500px) {
+    .containerCarousel {
+        display: none;
+    }
+}

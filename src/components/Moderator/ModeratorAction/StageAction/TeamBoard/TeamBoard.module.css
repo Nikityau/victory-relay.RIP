@@ -1,0 +1,37 @@
+.container {
+    position: relative;
+    width: 523px;
+    background: linear-gradient(150.69deg, #FFFFFF 0.94%,
+    rgba(242, 247, 255, 0.515092) 52.29%, rgba(174, 190, 223, 0) 106.84%);
+    box-shadow: inset -10px -10px 20px rgba(209, 219, 238, 0.5), inset 0px 15px 30px rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 20px 0;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.button {
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 100%;
+    }
+
+    .wrapper {
+
+    }
+
+    .button {
+        justify-content: right;
+    }
+}

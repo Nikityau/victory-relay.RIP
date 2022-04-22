@@ -1,0 +1,88 @@
+.infoBlockContainer {
+    display: none;
+}
+.infoBlockImg {
+
+}
+
+@media screen and (max-width: 500px){
+    .infoBlockContainer {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        display: block;
+        width: 100%;
+        height: 200px;
+        z-index: 20;
+        overflow: hidden;
+    }
+    .infoBlockImg {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .infoBlock {
+        position: absolute;
+        left: 0px;
+        top: 50px;
+        opacity: 1;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        z-index: 10;
+    }
+    .info {
+        position: relative;
+        width: 95%;
+        height: 90%;
+        border-radius: 10px;
+        box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.25);
+        border: 1px solid #C9D7EE;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: .3s ease-in-out;
+    }
+    .infoShow {
+        top: 0;
+    }
+    .infoHide {
+        top: -300px;
+    }
+
+    .text {
+        width: 80%;
+        text-align: center;
+    }
+    .text h4 {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .galina {
+        position: relative;
+        top: 15px;
+    }
+    .galina img {
+        width: 25px;
+        transition: all .3s ease-in-out;
+    }
+    .galinaDown {
+        transform: rotate(0);
+    }
+    .galinaUp {
+        transform: rotate(180deg);
+    }
+}

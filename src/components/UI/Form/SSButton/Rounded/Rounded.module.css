@@ -1,0 +1,48 @@
+.container {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    background: linear-gradient(150.69deg, #FFFFFF 0.94%, #F2F7FF 52.29%, #AEBEDF 106.84%);
+    box-shadow: inset 0px -1px 4px rgba(150, 164, 189, 0.58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.middleCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #EDF5FF 0%, #D9E1F0 100%);
+    box-shadow: inset 3px 3px 4px #D6DEEB, inset -3px -3px 4px #EEF6FC;
+}
+.button {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button span {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+.stop {
+    background: linear-gradient(180deg, #FF8540 0%, #FF4141 100%);
+    box-shadow: inset 4px 4px 4px rgba(255, 255, 255, 0.3), inset -4px -4px 4px rgba(12, 189, 51, 0.15);
+}
+.stop span {
+    color: #fff;
+}
+
+.start {
+    background: linear-gradient(180deg, #8FFF9B 0%, #A7FF72 100%);
+    box-shadow: inset 4px 4px 4px rgba(255, 255, 255, 0.3), inset -4px -4px 4px rgba(12, 189, 51, 0.15);
+}
+.start span {
+    color: #485863;
+}

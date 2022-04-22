@@ -1,0 +1,46 @@
+.relayDescriptionContainer {
+    margin-top: 40px;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imageContainer {
+    width: 795px;
+    height: 100%;
+    overflow: hidden;
+}
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: hard-light;
+}
+
+.descriptionContainer {
+    width: 695px;
+    height: 100%;
+    text-align: center;
+}
+.descTitle h2, .descText p {
+    font-family: "Alumni Sans", sans-serif;
+    font-weight: 400;
+}
+.descTitle h2 {
+    font-size: 24px;
+}
+.descText {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.descText p {
+    font-size: 22px;
+}
+
+@media screen and (max-width: 500px) {
+    .relayDescriptionContainer {
+        display: none;
+    }
+}

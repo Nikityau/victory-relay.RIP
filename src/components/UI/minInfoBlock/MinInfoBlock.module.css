@@ -1,0 +1,58 @@
+.infoBlockContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    border: 1px solid #C9D7EE;
+    background: #fff;
+    width: 205px;
+    height: 58px;
+    margin-top: 8px;
+}
+
+.numOfBlock {
+    position: absolute;
+    left: 5px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.numOfBlock span {
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.blockDesc {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.descr {
+
+}
+.descr p {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #2C2B3C;
+}
+.name {
+
+}
+.name p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #000;
+}

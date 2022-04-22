@@ -1,0 +1,83 @@
+.selectContainer {
+    position: relative;
+}
+
+.chosen {
+
+}
+
+.optionList {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    margin-top: 5px;
+    width: 100%;
+    height: 350px;
+    background: #fff;
+    border-radius: 10px;
+    transition: height .3s ease-in-out;
+    border: 1px solid #C9D7EE;
+    z-index: 5;
+    box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.25), inset 0px -2px 0px rgba(0, 0, 0, 0.25);
+}
+.optionList::-webkit-scrollbar {
+    position: relative;
+    width: 7px;
+    border-radius: 20px;
+    background: #B9C1D0;
+}
+
+.optionList::-webkit-scrollbar-thumb {
+    width: 7px;
+    border-radius: 20px;
+    background: linear-gradient(315deg, #FF4646 0%, #FFAA5B 100%);
+    box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.37), inset 3px 1px 15px rgba(255, 255, 255, 0.5);
+}
+
+.optionListHide {
+    height: 0;
+    border: none;
+}
+
+
+
+.optionListWrapper {
+    width: 90%;
+    height: 96%;
+    overflow-y: scroll;
+    overflow-x: visible;
+    margin: 10px auto 0;
+}
+.optionListWrapper::-webkit-scrollbar {
+    display: block;
+    width: 7px;
+    border-radius: 20px;
+    background: #B9C1D0;
+}
+
+.optionListWrapper::-webkit-scrollbar-thumb {
+    width: 7px;
+    border-radius: 20px;
+    background: linear-gradient(315deg, #FF4646 0%, #FFAA5B 100%);
+    box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.37), inset 3px 1px 15px rgba(255, 255, 255, 0.5);
+}
+.additionalInnerWrapper {
+    width: 90%;
+}
+
+.option {
+
+}
+
+.optionLine {
+    width: 70%;
+    height: 1px;
+    margin: 10px auto;
+    background: #C1C1C1;
+}
+
+@media screen and (max-width: 500px) {
+    .optionList {
+        top: 90px;
+    }
+}

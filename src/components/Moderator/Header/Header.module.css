@@ -1,0 +1,76 @@
+.headerContainer {
+    padding: 15px 0;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.adminButton {
+
+}
+
+.leftSide {
+    display: flex;
+}
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+.burgerLine {
+    position: relative;
+    width: 25px;
+    height: 5px;
+    border-radius: 20px;
+    background: #E54545;
+}
+.burgerLine:nth-child(1) {
+    top: 5px;
+}
+.burgerLine:nth-child(3) {
+    top: -4px;
+}
+.man {
+    width: 100%;
+    position: relative;
+    left: 30px;
+    display: flex;
+}
+.manImg {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.manImg img {
+    height: 100%;
+}
+.manDescr {
+    position: relative;
+    left: 10px;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 20px;
+}
+.manDescr h3 {
+    font-weight: 600;
+}
+.manDescr h5 {
+    font-weight: 300;
+}
+
+
+.rightSide {
+
+}
+.logoImg {
+
+}
+
+@media screen and (max-width: 500px) {
+    .headerContainer {
+        display: none;
+    }
+}

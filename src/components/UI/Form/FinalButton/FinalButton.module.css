@@ -1,0 +1,27 @@
+.container {
+    width: 252px;
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(315deg, #FF4646 0%, #FFAA5B 100%);
+    box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.37), inset 3px 1px 15px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.container h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 165px;
+        height: 43px;
+    }
+    .container h4 {
+        font-size: 14px;
+    }
+}

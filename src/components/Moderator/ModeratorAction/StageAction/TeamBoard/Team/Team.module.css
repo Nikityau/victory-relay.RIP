@@ -1,0 +1,59 @@
+.container {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hex {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.data {
+    position: relative;
+    width: 338px;
+    height: 44px;
+    border-radius: 10px;
+}
+.data input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 1px solid #C9D7EE;
+    border-radius: 10px;
+    text-align: center;
+}
+.current {
+    position: absolute;
+    top: 0;
+    right: -40px;
+    bottom: 0;
+    opacity: 0;
+    transform: rotate(-90deg);
+    transition: all .3s ease-in-out;
+}
+.currentThis {
+    opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+
+    }
+    .hex {
+        width: 22px;
+        height: 22px;
+    }
+    .data {
+        width: 204px;
+        height: 33px;
+    }
+    .data input {
+        border-radius: 18px;
+    }
+    .current {
+        right: -30px;
+    }
+}

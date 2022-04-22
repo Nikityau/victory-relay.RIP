@@ -1,0 +1,117 @@
+.stageListContainer {
+    position: relative;
+    width: 100%;
+    margin-top: 120px;
+    padding-bottom: 70px;
+}
+
+.currentStage {
+    display: none;
+}
+.currentStage h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+}
+.mobileVersion {
+    display: none;
+}
+.desktopVersion {
+    padding-top: 50px;
+    display: block;
+}
+.listContainer {
+
+}
+.stDesktopContainer {
+    display: flex;
+    flex-direction: column;
+}
+.swiperDesktop {
+    width: 1400px;
+    padding: 40px 0;
+}
+.swiperWrapper {
+    position: relative;
+    width: 100%;
+    background: #E4ECFB;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:  inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.swiperLeftImg, .swiperRightImg {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+.swiperLeftImg {
+    left: 0;
+}
+.swiperRightImg {
+    right: 0;
+}
+.swiperLeftImg img, .swiperRightImg img {
+    width: 50px;
+    transition: all .3s ease-in-out;
+}
+.swiperLeftImg img {
+    transform: rotate(180deg);
+}
+.isOff {
+    opacity: .3;
+}
+.teamList {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
+.teamListTitle {
+    width: 400px;
+    margin: 0 auto;
+}
+.teamListTitle h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+.teamListTeams {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 500px) {
+    .stageListContainer {
+        margin-top: 145px;
+    }
+    .mobileVersion {
+        display: block;
+    }
+    .desktopVersion {
+        display: none;
+    }
+    .currentStage {
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .listContainer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 20px auto 0;
+        width: 93%;
+        padding-bottom: 20px;
+        border-radius: 40px;
+        background: #E4ECFB;
+    }
+}

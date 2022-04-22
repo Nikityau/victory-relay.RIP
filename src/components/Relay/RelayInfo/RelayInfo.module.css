@@ -1,0 +1,10 @@
+.relayInfoContainer {
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+
+@media screen and (max-width: 500px) {
+    .relayInfoContainer {
+        padding-top: 60px;
+    }
+}

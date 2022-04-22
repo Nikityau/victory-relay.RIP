@@ -1,0 +1,33 @@
+body {
+    background: #fff;
+    padding-bottom: 0;
+}
+.App {
+    position: relative;
+    max-width: 1610px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+
+    html {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    html::-webkit-scrollbar {
+        display: none;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    body {
+        overflow-x: hidden;
+    }
+    .App {
+        max-width: 100%;
+    }
+}
