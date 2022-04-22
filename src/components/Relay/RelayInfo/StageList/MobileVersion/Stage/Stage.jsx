@@ -10,6 +10,9 @@ import classes from './Stage.module.css'
 
 const Stage = ({stage, stageNum, teams, races}) => {
 
+    const container = useRef(null);
+    const infoBlock = useRef(null);
+
     let [isShowMore, setIsShowMore] = useState(true);
     const [progress, setProgress] = useState(60)
 
@@ -18,10 +21,24 @@ const Stage = ({stage, stageNum, teams, races}) => {
     useEffect(() => {
         calculateProgress()
         changeProgress();
-    }, [progress,teams])
+        changeShowState();
+    }, [progress,teams, isShowMore])
 
     const changeShowState = () => {
-        setIsShowMore(prevState => !prevState)
+        if(!container.current || !infoBlock.current) return;
+
+        if(isShowMore) {
+            const element = infoBlock.current.children[Math.floor(infoBlock.current.children.length / 2)];
+            const height = element.offsetTop + element.clientHeight * 1.7;
+            container.current.style.height = height + 'px';
+            return;
+        }
+
+        if(!isShowMore) {
+            const height = infoBlock.current.clientHeight + infoBlock.current.offsetTop;
+            container.current.style.height = height + 50 + 'px';
+            return;
+        }
     }
     const calculateProgress = () => {
         const width = document.querySelector('.progress-bar-back').clientWidth;
@@ -43,7 +60,7 @@ const Stage = ({stage, stageNum, teams, races}) => {
     }
 
     return (
-        <div className={[classes.stageContainer, isShowMore ? "" : classes.stageOpen].join(' ')}>
+        <div className={[classes.stageContainer, isShowMore ? "" : ""].join(' ')} ref={container}>
             <div className={[classes.stageImage, isShowMore ? classes.imgClosed : classes.imgOpen].join(' ')}>
                 <img src={stage?.icon} alt="stage image"/>
             </div>
@@ -57,7 +74,7 @@ const Stage = ({stage, stageNum, teams, races}) => {
                     <div className={classes.stageProgressBar}>
                         <StageProgressBar progress={progress} ref={progressLine}/>
                     </div>
-                    <div className={classes.teamsContainer}>
+                    <div className={classes.teamsContainer} ref={infoBlock}>
                         {
                             Array.isArray(races?.results)
                                 ? races.results[0]?.teams.map(team => {
@@ -73,7 +90,9 @@ const Stage = ({stage, stageNum, teams, races}) => {
                     </div>
                 </div>
             </div>
-            <ShowHideButton isShow={isShowMore} callback={changeShowState}/>
+            <ShowHideButton isShow={isShowMore} callback={() => {
+                setIsShowMore(prevState => !prevState)
+            }}/>
         </div>
     );
 };

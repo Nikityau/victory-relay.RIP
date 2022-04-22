@@ -21,8 +21,6 @@ const MobileNavigation = () => {
 
     useEffect(() => {
         lineLeft()
-        console.log(location)
-        console.log('left')
     }, [location])
 
     const lineLeft = () => {
@@ -45,8 +43,6 @@ const MobileNavigation = () => {
             return
         }
     }
-
-
 
     const toHome  = () => {
         const offsetLeft = home_bl.current.offsetLeft + home_bl.current.clientWidth / 2;
