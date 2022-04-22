@@ -99,7 +99,7 @@
         background: #C1C1C1;
     }
     .descr {
-        width: 200px;
+        max-width: 250px;
         position: relative;
         display: flex;
         height: 34px;
@@ -108,12 +108,12 @@
     .descr h3 {
         font-family: Work Sans, sans-serif;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 1rem;
         color: #2D4191;
     }
     .descr h4 {
         position: relative;
-        left: 20px;
+        left: 10px;
         font-family: "Open Sans", sans-serif;
         font-weight: 300;
         font-size: 15px;

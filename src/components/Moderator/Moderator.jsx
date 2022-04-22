@@ -89,7 +89,7 @@ const Moderator = ({stages, teams, races, plugCallback}) => {
                          moderator={moderator} isSideBarOpen={isSideBarOpen} isAccess={isAccess}/>
                 <div className={classes.wrapper}>
                     <div className={classes.main}>
-                        <Header adminCallback={toAdminPanel} sideBarCallback={openSideBar} moderator={moderator}
+                        <Header isStageRun={isStageRun} adminCallback={toAdminPanel} sideBarCallback={openSideBar} moderator={moderator}
                                 idSideBarOpen={isSideBarOpen}/>
                         <div className={classes.actionWrapper}>
                             <ModeratorAction plugCallback={plugCallback} isStageRun={isStageRun} token={token}

@@ -8,7 +8,7 @@ import TeamMarker from "./TeamMarker/TeamMarker";
 import classes from "./StageProgressBar.module.css";
 
 //images
-import finish from '../../../../assets/icons/stages-png/finish.png'
+import finish from '../../../../assets/icons/progress-bar-icon/finish.png'
 
 //context
 import {AppContext} from "../../../App/App";
@@ -29,8 +29,6 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
 
     }
 
-
-
     useEffect(() => {
         if(Array.isArray(races?.results)) {
             setRace(races.results[0]?.teams);
@@ -50,7 +48,7 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
                         stages?.map((stage, index) => {
                             return (
                                 <StageCircle key={stage.id} complete={isStageComplete(progressCircle * index, globalProg)}
-                                             icon={stage.icon}/>
+                                             icon={stage.icon_bar || stage.icon}/>
                             )
                         })
                     }

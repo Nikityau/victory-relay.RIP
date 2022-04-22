@@ -15,6 +15,7 @@ import {AppContext} from "../../../App/App";
 
 //images
 import swiperButton from '../../../../assets/icons/slider/right-button.svg'
+import {useHistory, useLocation} from "react-router-dom";
 
 const StageList = ({stages, currentStage, popUpCallback, races, teams}) => {
 
@@ -36,9 +37,6 @@ const StageList = ({stages, currentStage, popUpCallback, races, teams}) => {
     return (
         <div className={classes.stageListContainer}>
             <div className={classes.mobileVersion}>
-                <div className={classes.currentStage}>
-                    <h3>текущий этап - {currentStage}</h3>
-                </div>
                 <div className={classes.listContainer}>
                     {
                         stages?.map((stage, index) => {

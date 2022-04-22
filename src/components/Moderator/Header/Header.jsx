@@ -12,7 +12,7 @@ import arrow from '../../../assets/icons/arrow.svg'
 //styles
 import classes from "./Header.module.css";
 
-const Header = ({sideBarCallback, idSideBarOpen, moderator, adminCallback, stageWinnerState}) => {
+const Header = ({sideBarCallback, idSideBarOpen, moderator, adminCallback, stageWinnerState, isStageRun}) => {
 
     const preventDef = (e) => {
         e.preventDefault()
@@ -39,7 +39,7 @@ const Header = ({sideBarCallback, idSideBarOpen, moderator, adminCallback, stage
             </div>
             {
                 moderator.role == 'admin'
-                    ?  <div className={classes.adminButton}>
+                    ?  <div className={[classes.adminButton, isStageRun ? classes.stagerun : ''].join(' ')}>
                         <ButtonBlue text={'панель администратора'} callback={adminCallback}/>
                     </div>
                     : ''
