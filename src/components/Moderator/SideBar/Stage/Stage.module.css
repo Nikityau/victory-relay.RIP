@@ -85,10 +85,11 @@
     }
 
     .stageDescr {
-
+        flex-direction: column;
+        align-items: center;
     }
     .stageDescr h3,.stageDescr h5  {
-
+        font-size: 1rem;
     }
     .stageDescr h3 {
 

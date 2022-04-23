@@ -45,7 +45,7 @@ const ModeratorNavigation = ({isRun, moderator, token}) => {
         setLeft(offset)
     }
     const toExit = () => {
-        const offset = exitRef.current.offsetLeft + exitRef.current.clientWidth / 2;
+        const offset = exitRef.current.offsetLeft + (exitRef.current.clientWidth / 2 || 10.5);
         setLeft(offset)
     }
     const setLeft = (offsetLeft) => {
