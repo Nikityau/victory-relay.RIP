@@ -99,7 +99,6 @@
         background: #C1C1C1;
     }
     .descr {
-        max-width: 250px;
         position: relative;
         display: flex;
         height: 34px;
