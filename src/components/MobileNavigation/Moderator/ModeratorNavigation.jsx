@@ -40,8 +40,6 @@ const ModeratorNavigation = ({isRun, moderator, token}) => {
 
     const toHome = () => {
         const offset = homeRef.current.offsetLeft + (homeRef.current.clientWidth / 2 || 11);
-        console.log(homeRef.current.offsetLeft, homeRef.current.clientWidth)
-        //console.log(offset)
         setLeft(offset)
     }
     const toExit = () => {

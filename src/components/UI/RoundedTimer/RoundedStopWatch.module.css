@@ -1,4 +1,5 @@
 .stopWatchContainer {
+    position: relative;
 }
 .stopWatch {
     width: 100%;
@@ -32,6 +33,7 @@
     .stopWatch {
         display: none;
         position: absolute;
+        top: 0;
         left: 20px;
     }
     .stopWatch span {

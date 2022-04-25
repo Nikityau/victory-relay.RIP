@@ -1,15 +1,17 @@
 .container {
+    padding-top: 5vh;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70%;
+    height: 85vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .choiceSide {
     position: relative;
+    height: 100%;
     left: 1%;
     transition: all .3s ease-in-out;
 }
@@ -58,10 +60,11 @@
 }
 
 .timerContainer {
-    margin-top: 50px;
+    position: relative;
+    margin-top: 10px;
 }
 .timer {
-
+    position: relative;
 }
 .button {
 
@@ -69,6 +72,7 @@
 
 .resultsSide {
     position: relative;
+    height: 100%;
     left: -10%;
 }
 .resultsTitle {
@@ -81,6 +85,19 @@
     display: none;
 }
 
+.buttons {
+    transition: opacity .3s linear;
+}
+.buttonsInvs {
+    pointer-events: none;
+    opacity: .5;
+}
+.desktop {
+    display: block;
+}
+.phone {
+    display: none;
+}
 @media screen and (max-width: 500px) {
     .container {
         margin-top: 30px;
@@ -90,6 +107,7 @@
     }
     .choiceSide {
         width: 80%;
+        height: auto;
         left: 0;
     }
     .title {
@@ -106,7 +124,6 @@
         height: 83px;
     }
     .chosenStage{
-
     }
     .chooseTeam {
         width: 100%;
@@ -115,14 +132,15 @@
         width: 100%;
     }
     .timerContainer {
-        position: fixed;
+        width: 100%;
+        position: relative;
         display: block;
-        bottom: 190px;
-        left: 0;
-        z-index: 10;
+        z-index: 1;
     }
     .timer {
-
+        position: absolute;
+        width: 100%;
+        left: 0;
     }
     .button {
 
@@ -130,7 +148,7 @@
     .resultsSide {
         left: 0;
         width: 80%;
-        margin-top: 20px;
+        margin-top: 50px;
     }
     .resultsTitle {
 
@@ -148,5 +166,21 @@
         font-family: "Open Sans", sans-serif;
         font-weight: 600;
         font-size: 20px;
+    }
+
+
+    .buttons {
+
+    }
+    .desktop {
+        display: none;
+    }
+    .phone {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
     }
 }

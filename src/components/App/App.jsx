@@ -43,7 +43,7 @@ const App = () => {
     }
 
     const timeInterval = 1000 * 60 * 5
-    setInterval(getData, timeInterval)
+    //setInterval(getData, timeInterval)
 
 
     async function getResults_API()  {

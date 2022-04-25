@@ -13,6 +13,9 @@ import RelayAPIService from "../../../../API/Relay_API/RelayAPI.service";
 //styles
 import classes from "./StageAction.module.css";
 import {logDOM} from "@testing-library/react";
+import Clock from "../../../Timer/Clock/Clock";
+import SSButon from "../../../UI/Form/SSButton/Rectangle/SSButon";
+import Rounded from "../../../UI/Form/SSButton/Rounded/Rounded";
 
 //context
 export const TeamSelectedContext = React.createContext(null);
@@ -156,10 +159,15 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
                             </div>
                             <div className={classes.timerContainer}>
                                 <div className={classes.timer}>
-                                    <RoundedStopWatch isError={isError} isStageComplete={isStageFinish}
-                                                      setIsStopWatchRun={setIsStopWatchRun}
-                                                      startStopWatch={startStopWatch} stopStopWatch={stopStopWatch}
-                                                      isStopWatchRun={isStopWatchRun}/>
+                                    <Clock isRun={isStopWatchRun}/>
+                                   <div className={[classes.buttons, isError ? classes.buttonsInvs : ''].join(' ')}>
+                                       <div className={classes.desktop}>
+                                           <SSButon isStart={isStopWatchRun} startCallback={startStopWatch} stopCallback={stopStopWatch}/>
+                                       </div>
+                                        <div className={classes.phone}>
+                                            <Rounded isStart={isStopWatchRun} startCallback={startStopWatch} stopCallback={stopStopWatch}/>
+                                        </div>
+                                   </div>
                                 </div>
                             </div>
                         </div>
