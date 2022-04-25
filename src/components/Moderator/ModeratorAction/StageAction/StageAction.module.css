@@ -127,6 +127,7 @@
     .chosenStage{
     }
     .chooseTeam {
+        margin-top: 30px;
         width: 100%;
     }
     .teamSelect {

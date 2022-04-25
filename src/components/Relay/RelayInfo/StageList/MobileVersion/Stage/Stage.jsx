@@ -28,7 +28,7 @@ const Stage = ({stage, stageNum, teams, races}) => {
         if(!container.current || !infoBlock.current) return;
 
         if(isShowMore) {
-            const element = infoBlock.current.children[Math.floor(infoBlock.current.children.length / 2)];
+            const element = infoBlock.current.children[Math.floor((infoBlock.current.children.length - 3) / 2)];
             const height = element.offsetTop + element.clientHeight * 1.7;
             container.current.style.height = height + 'px';
             return;

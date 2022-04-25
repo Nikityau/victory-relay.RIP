@@ -16,14 +16,17 @@
     position: absolute;
     top: 2px;
     bottom: 0;
-    left: -25px;
+    left: 0;
     height: 99%;
     overflow: hidden;
     display: flex;
+    border-radius: 10px;
     justify-content: center;
     align-items: center;
 }
 .img img {
+    position: relative;
+    left: -25px;
     width: 63px;
 }
 
@@ -92,10 +95,9 @@
         font-size: 1rem;
     }
     .stageDescr h3 {
-
     }
     .stageDescr h5 {
-
+        left: 0;
     }
     .stageInfo {
 
