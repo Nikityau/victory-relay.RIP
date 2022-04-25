@@ -4,9 +4,9 @@ import React, {useEffect, useRef, useState} from 'react';
 import classes from "./TeamMarker.module.css";
 
 //images
-import marker from '../../../../../assets/icons/marker/anti-shakal-2.png'
+import marker from '../../../../../assets/icons/marker/marker.svg'
 
-const TeamMarker = ({team, stagesLength, teams, setMarker, markerId}) => {
+const TeamMarker = ({team, stagesLength, teams, callback, markerId}) => {
 
     const markerRef = useRef(null);
     const [markersTeam, setMarkersTeam] = useState(null);
@@ -28,7 +28,7 @@ const TeamMarker = ({team, stagesLength, teams, setMarker, markerId}) => {
         let completionRate = markersTeam?.finished_stages;
 
         markerRef.current.style.left = stagesPerPixel * completionRate - markerRef.current.clientWidth / 2 + 'px';
-        setMarker(markerRef.current)
+        callback(markerRef.current.style.left, team.color_code_hex)
     }
 
     return (

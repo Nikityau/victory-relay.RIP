@@ -9,6 +9,7 @@ import classes from './RelayInfo.module.css'
 import teamsLength_API_F from "../../../utils/Relay_API_utils/teamsLength";
 import progPerPixel_API_F from "../../../utils/Relay_API_utils/progPerPixel";
 import globalProgCoeff_API_F from "../../../utils/Relay_API_utils/globalProgCoeff";
+import {RadialChart} from "react-vis";
 
 const RelayInfo = ({stages, popUpCallback, teams, races}) => {
 

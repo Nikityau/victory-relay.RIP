@@ -59,6 +59,32 @@
     width: 100%;
     height: 44px;
 }
+.chart {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    opacity: 1;
+    width: 50px;
+    height: 50px;
+    z-index: 20;
+    filter: drop-shadow( 0 4px 2px rgba(0, 0, 0, 0.4));
+    transition: all .3s ease-in-out;
+}
+.charShow {
+    opacity: 1;
+}
+.chartImg {
+    width: 50px;
+    height: 50px;
+}
+.chartImg img {
+    width: 100%;
+}
+.radChart {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
 
 @media screen and (max-width: 500px) {
     .title h2 {
