@@ -1,5 +1,4 @@
 .stopWatchContainer {
-
 }
 .stopWatch {
     width: 100%;
@@ -31,6 +30,7 @@
 
 @media screen and (max-width: 500px) {
     .stopWatch {
+        display: none;
         position: absolute;
         left: 20px;
     }
@@ -50,6 +50,6 @@
         display: flex;
         justify-content: center;
         bottom: 5px;
-        z-index: 15;
+        z-index: 5;
     }
 }

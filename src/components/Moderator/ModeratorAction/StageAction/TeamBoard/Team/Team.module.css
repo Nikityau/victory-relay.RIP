@@ -15,7 +15,6 @@
     position: relative;
     width: 338px;
     height: 44px;
-    border-radius: 10px;
 }
 .data input {
     width: 100%;
@@ -47,7 +46,7 @@
         height: 22px;
     }
     .data {
-        width: 204px;
+        width: 80%;
         height: 33px;
     }
     .data input {

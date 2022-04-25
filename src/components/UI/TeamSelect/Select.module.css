@@ -45,6 +45,7 @@
 }
 .teamInnerWrapper {
     width: 90%;
+    z-index: 10;
 }
 .teamOptWrapper {
     width: 100%;
@@ -68,10 +69,11 @@
     }
     .teamContainer {
         width: 100%;
+        height: 40vh;
         top: 50px;
     }
     .teamContainerClose {
-
+        height: 0;
     }
 
     .teamWrapper {

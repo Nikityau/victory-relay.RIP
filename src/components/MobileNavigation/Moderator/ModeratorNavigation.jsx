@@ -54,8 +54,8 @@ const ModeratorNavigation = ({isRun, moderator, token}) => {
     }
 
     return (
-        <div className={classes.moderNavContainer}>
-            <div className={classes.wrapper}>
+        <footer className={classes.moderNavContainer}>
+            <nav className={classes.wrapper}>
                 <div ref={lineRef} id={'moder-line'} className={classes.line}/>
                 <div onClick={toHome} ref={homeRef}
                      className={[classes.home, isRun ? classes.touchPrevent : ''].join(' ')}>
@@ -69,8 +69,8 @@ const ModeratorNavigation = ({isRun, moderator, token}) => {
                         <img src={location.pathname.includes('exit') ? redEXit : exit} alt={'img'}/>
                     </Link>
                 </div>
-            </div>
-        </div>
+            </nav>
+        </footer>
     );
 };
 
