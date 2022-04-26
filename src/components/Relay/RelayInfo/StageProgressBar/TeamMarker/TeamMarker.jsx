@@ -6,7 +6,7 @@ import classes from "./TeamMarker.module.css";
 //images
 import marker from '../../../../../assets/icons/marker/marker.svg'
 
-const TeamMarker = ({team, stagesLength, teams, callback, markerId}) => {
+const TeamMarker = ({team, stagesLength, teams, callback, markerId, isHide}) => {
 
     const markerRef = useRef(null);
     const [markersTeam, setMarkersTeam] = useState(null);
@@ -14,7 +14,7 @@ const TeamMarker = ({team, stagesLength, teams, callback, markerId}) => {
     useEffect(() => {
         findTeam();
         setProgress();
-    }, [markersTeam, teams])
+    }, [markersTeam, teams, isHide])
 
     const findTeam = () => {
         const team_f = teams.find(t => t.id == team.id);
@@ -32,7 +32,7 @@ const TeamMarker = ({team, stagesLength, teams, callback, markerId}) => {
     }
 
     return (
-        <div className={classes.marker} ref={markerRef} id={markerId}>
+        <div className={[classes.marker, isHide ? classes.hide : ''].join(' ')} ref={markerRef} id={markerId}>
             <div className={classes.markerImg}>
                 <img src={marker} alt={'img'}/>
             </div>

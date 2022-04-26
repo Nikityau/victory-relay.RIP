@@ -16,10 +16,11 @@ import {RadialChart} from "react-vis";
 
 //img
 import img_marker from '../../../../assets/icons/marker/marker.svg'
+import markSeries from "react-vis/es/plot/series/mark-series";
+import team from "../../../Moderator/ModeratorAction/StageAction/TeamBoard/Team/Team";
 
 const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, stages, races}, ref) => {
 
-    const appContext = useContext(AppContext)
 
     const isStageComplete = (pgCirc, globPg) => {
         return globPg >= pgCirc;
@@ -27,34 +28,102 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
 
     const [race, setRace] = useState([])
 
-    const [markerData, setMarkerData] = useState([
-        { x:0, color:'000'}
-    ])
+    const [markerData, setMarkerData] = useState([])
+    //let markerData = [];
 
-    const [markerChartData, setMarkerChartData] = useState([
-        { color: 'red', angle: 1 },
-        { color: 'blue', angle: 1 },
-        { color: 'orange', angle: 1 },
-        { color: 'black', angle: 1 },
-    ])
+    const [markerChartDataArray, setMarkerChartDataArray] = useState([])
+
+    /* const [markerChartData, setMarkerChartData] = useState([
+         { color: 'red', angle: 1 },
+         { color: 'blue', angle: 1 },
+         { color: 'orange', angle: 1 },
+         { color: 'black', angle: 1 },
+     ])*/
 
     useEffect(() => {
-        if(Array.isArray(races?.results)) {
-            setRace(races.results[0]?.teams);
+        if (Array.isArray(races?.results)) {
+            setRaceTeams()
             setMarkers()
+            console.log('test')
         }
-    }, [races, race])
+
+    }, [races, teams, markerChartDataArray])
+
+    const setRaceTeams = () => {
+        const raceTeams = races.results[0]?.teams.map(team => {
+            return {...team, isHide: false}
+        })
+        setRace(raceTeams)
+    }
 
     const setMarkers = () => {
-
+        const markerData_ = race?.map(team => {
+            return {name: team.name, color: team.color_code_hex, x: 0}
+        })
+        setMarkerData(markerData_)
     }
 
     const checkMarker = (markerLeft, color) => {
+        const index = markerData.findIndex(team => {
+            return team.color == color;
+        })
+        if (index === -1) return;
 
+        markerData[index].x = markerLeft || 0;
+        chartSet(markerLeft)
     }
 
-    const chartSet = (color) => {
+    const chartSet = async (leftOffset) => {
 
+        const markers_ = markerData?.filter(team => {
+            return team.x == leftOffset;
+        });
+
+        console.log(markers_, 'data')
+        if (!markers_.length || markers_.length === 1) {
+            console.log('work')
+            return;
+
+        }
+
+        console.log(markers_, 'findMarkers')
+        const raceTeams_ = race.map(team => {
+            const find = markers_.find(t => t.color == team.color_code_hex)
+
+            if (find) {
+                return {...team, isHide: true}
+            } else {
+                return {...team, isHide: false}
+            }
+        })
+
+        const markerChartData = markers_.map(team => {
+            return {color: `#${team.color}`, angle: 1};
+        })
+
+
+        const findIndex = markerChartDataArray.findIndex(t => {
+            return t.x == leftOffset;
+        });
+
+        if(findIndex !== -1) {
+            markerChartDataArray[findIndex].data = markerChartData;
+        } else {
+            if(markerChartDataArray.length === 0) {
+                console.log(markers_, 'findMarkers')
+                await setMarkerChartDataArray([
+                    {
+                        x: leftOffset,
+                        data: markerChartData
+                    }
+                ])
+            } else {
+                await setMarkerChartDataArray(prevState => [...prevState, { x:leftOffset, data:markerChartDataArray }])
+            }
+        }
+        console.log(markerChartDataArray, 'ChartDataArray')
+
+        setRace(raceTeams_)
     }
 
     return (
@@ -69,7 +138,8 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
                     {
                         stages?.map((stage, index) => {
                             return (
-                                <StageCircle key={stage.id} complete={isStageComplete(progressCircle * index, globalProg)}
+                                <StageCircle key={stage.id}
+                                             complete={isStageComplete(progressCircle * index, globalProg)}
                                              icon={stage.icon_bar || stage.icon}/>
                             )
                         })
@@ -83,11 +153,31 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
                             return (
                                 <TeamMarker key={team.id} team={team} teams={teams}
                                             stagesLength={stages?.length}
-                                            markerId={index} callback={checkMarker}/>
+                                            markerId={index} isHide={team.isHide || false} callback={checkMarker}/>
                             )
                         })
                     }
-                    <div className={classes.chart}>
+
+                    {
+                        markerChartDataArray.map((marker, index) => {
+                            return (
+                                <div key={index} className={[classes.chart, !markerData.length ? classes.hide : ''].join(' ')}
+                                     style={{left: marker.x || '200px'}}>
+                                    <div className={classes.chartImg}>
+                                        <img src={img_marker} alt={'img'}/>
+                                    </div>
+                                    <div className={classes.radChart}>
+                                        <RadialChart colorType={'literal'}
+                                                     data={marker?.data || []}
+                                                     width={60}
+                                                     height={60}/>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+
+                    {/* <div className={classes.chart} ref={unitMarker}>
                         <div className={classes.chartImg}>
                             <img src={img_marker} alt={'img'}/>
                         </div>
@@ -97,7 +187,7 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
                                         width={60}
                                         height={60}/>
                        </div>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         </div>

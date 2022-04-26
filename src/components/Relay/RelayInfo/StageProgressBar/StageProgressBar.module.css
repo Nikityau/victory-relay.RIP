@@ -85,6 +85,9 @@
     top: -5px;
     left: -5px;
 }
+.hide {
+    opacity: 0;
+}
 
 @media screen and (max-width: 500px) {
     .title h2 {
