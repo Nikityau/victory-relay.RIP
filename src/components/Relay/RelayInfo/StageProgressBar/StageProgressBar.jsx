@@ -8,7 +8,7 @@ import TeamMarker from "./TeamMarker/TeamMarker";
 import classes from "./StageProgressBar.module.css";
 
 //images
-import finish from '../../../../assets/icons/progress-bar-icon/finish.png'
+import finish from '../../../../assets/icons/progress-bar-icon/finish.svg'
 
 //context
 import {AppContext} from "../../../App/App";
