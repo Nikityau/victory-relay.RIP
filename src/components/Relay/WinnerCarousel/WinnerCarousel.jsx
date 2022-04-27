@@ -7,10 +7,10 @@ import 'swiper/css'
 import './swiper.css'
 import classes from "./WinnerCarousel.module.css"
 
-const WinnerCarousel = ({ races, teams}) => {
+const WinnerCarousel = ({races, teams}) => {
 
     useEffect(() => {
-    }, [races, teams])
+    }, [races, teams ,races.results])
 
     const findWinnerOnStage = (stage_num) => {
         if(!Array.isArray(races.results)) return '';
@@ -42,29 +42,30 @@ const WinnerCarousel = ({ races, teams}) => {
 
     return (
         <div className={[classes.containerCarousel, 'container'].join(' ')}>
-            <Swiper
-                modules={[Autoplay]}
-                spaceBetween={200}
-                slidesPerView={3}
-                loop={true}
-                speed={5000}
-                autoplay={{
-                    delay: 0,
-                    disableOnInteraction: false
-                }}
-                allowTouchMove={false}>
-                {
-                    Array.isArray(races?.results)
-                        ? races?.results[0]?.stage_types.map((stage,index) => {
-                            return (
-                               <div className={classes.swiper}>
-                                   <SwiperSlide key={stage.id}><h3>Лучший результат у команды {findWinnerOnStage(index)} на этапе: {index + 1}</h3></SwiperSlide>
-                               </div>
-                            )
-                        })
-                        : ''
-                }
-            </Swiper>
+            {
+                Array.isArray(races?.results)
+                    ?  <Swiper
+                        modules={[Autoplay]}
+                        spaceBetween={200}
+                        slidesPerView={3}
+                        loop={true}
+                        speed={5000}
+                        autoplay={{
+                            delay: 0,
+                            disableOnInteraction: false
+                        }}
+                        allowTouchMove={false}>
+                        {
+
+                            races?.results[0]?.stage_types.map((stage,index) => {
+                                return (
+                                    <SwiperSlide key={stage.id}><h3>Лучший результат у команды {findWinnerOnStage(index)} на этапе: {index + 1}</h3></SwiperSlide>
+                                )
+                            })
+                        }
+                    </Swiper>
+                    : ''
+            }
         </div>
     );
 };
