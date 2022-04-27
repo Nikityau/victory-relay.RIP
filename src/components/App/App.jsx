@@ -109,7 +109,12 @@ const App = () => {
                                           teams={teams_API} popUpCallback={dynamicChangePopUp}/>
                                </Route>
                                <Route path="/user/teams">
-                                   <TeamList races={races_API}/>
+                                   {
+                                       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+                                           ? <TeamList races={races_API}/>
+                                           : <Redirect to={'/user/relay'}/>
+                                   }
+
                                </Route>
                                <Route path={'/user/team/:id'}>
                                    <TeamDescription teams={teams_API} stages={stages_API} races={races_API}/>

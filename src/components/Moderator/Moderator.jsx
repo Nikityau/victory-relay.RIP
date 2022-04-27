@@ -78,8 +78,12 @@ const Moderator = ({stages, teams, races, plugCallback}) => {
 
     const exit = async () => {
         //logout
-        await ModeratorAPIController.logOut(token)
-        history.replace('/user/login')
+        try {
+            await ModeratorAPIController.logOut(token)
+            history.replace('/user/login')
+        } catch (e) {
+            history.replace('/user/login')
+        }
     }
 
     return (

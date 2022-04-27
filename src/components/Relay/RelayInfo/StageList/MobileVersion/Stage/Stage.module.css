@@ -43,7 +43,6 @@
         border-radius: 20px;
         overflow: hidden;
         transition: .3s ease-in-out;
-        height: 345px;
         box-shadow: 0 30px 60px 0px #98A7C5;
     }
     .stageOpen {
@@ -67,8 +66,8 @@
     }
     .imgOpen img {
         top: 14px;
-        left: 90px;
-        width: 50px;
+        left: -20px;
+        width: 250px;
     }
     .imgClosed img {
         width: 169px;
