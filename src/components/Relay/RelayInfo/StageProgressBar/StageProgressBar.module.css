@@ -8,8 +8,9 @@
 .title {
     text-align: center;
 }
+
 .title h2 {
-    font-family: "Open Sans",sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
 }
@@ -19,6 +20,7 @@
     width: 100%;
     position: relative;
 }
+
 .backLine {
     position: absolute;
     top: 0;
@@ -52,6 +54,7 @@
     justify-content: space-between;
     z-index: 3;
 }
+
 .teamMarkers {
     position: absolute;
     bottom: 0;
@@ -59,6 +62,7 @@
     width: 100%;
     height: 44px;
 }
+
 .chart {
     position: absolute;
     top: -20px;
@@ -67,24 +71,29 @@
     width: 50px;
     height: 50px;
     z-index: 20;
-    filter: drop-shadow( 0 4px 2px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.4));
     transition: all .3s ease-in-out;
 }
+
 .charShow {
     opacity: 1;
 }
+
 .chartImg {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
 }
+
 .chartImg img {
     width: 100%;
 }
+
 .radChart {
     position: absolute;
     top: -5px;
     left: -5px;
 }
+
 .hide {
     opacity: 0;
 }
@@ -97,5 +106,31 @@
     .progressBar {
         width: 90%;
         margin: 55px auto 0px;
+    }
+
+    .chart {
+        top: 0;
+        width: 25px;
+        height: 20px;
+    }
+
+    .charShow {
+
+    }
+
+    .chartImg {
+
+    }
+
+    .chartImg img {
+        width: 100%;
+    }
+
+    .radChart {
+        left: -10px;
+        top: -10px;
+        width: 10px;
+        height: 10px;
+        opacity: 1;
     }
 }

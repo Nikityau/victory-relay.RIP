@@ -37,7 +37,6 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
             setRaceTeams()
             setMarkers()
             setDefaultChartData()
-            console.log('test')
         }
     }, [races, teams, stages, globalProg])
 
@@ -111,7 +110,6 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
             const dataChartFiltered = dataChart.map(dataC => {
                 const dataChart_ = dataC.data.filter(data_ => {
                     const bool = data_.color != `#${markers_[0].color}`;
-                    console.log(bool, data_.color, `#${markers_[0].color}`)
                     return bool
                 })
                 if(dataChart_.length == 1) {
@@ -213,8 +211,8 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
                                     <div className={classes.radChart}>
                                         <RadialChart colorType={'literal'}
                                                      data={marker?.data || []}
-                                                     width={60}
-                                                     height={60}/>
+                                                     width={window.screen.width > 500 ? 60 : 45}
+                                                     height={window.screen.width > 500 ? 60 : 45}/>
                                     </div>
                                 </div>
                             )

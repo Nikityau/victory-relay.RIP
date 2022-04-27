@@ -32,6 +32,8 @@ const TeamMarker = ({team, stagesLength, teams, callback, markerId, isHide}) => 
     }
 
     const checkHideInfo = () => {
+        if(!markersTeam?.color_code_hex) return
+
         const data = sessionStorage.getItem(markersTeam.color_code_hex);
 
         if(data) {
