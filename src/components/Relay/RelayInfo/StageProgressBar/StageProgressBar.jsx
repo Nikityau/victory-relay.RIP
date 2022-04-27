@@ -29,25 +29,21 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
     const [race, setRace] = useState([])
 
     const [markerData, setMarkerData] = useState([])
-    //let markerData = [];
 
     const [markerChartDataArray, setMarkerChartDataArray] = useState([])
-
-    /* const [markerChartData, setMarkerChartData] = useState([
-         { color: 'red', angle: 1 },
-         { color: 'blue', angle: 1 },
-         { color: 'orange', angle: 1 },
-         { color: 'black', angle: 1 },
-     ])*/
 
     useEffect(() => {
         if (Array.isArray(races?.results)) {
             setRaceTeams()
             setMarkers()
+            setDefaultChartData()
             console.log('test')
         }
+    }, [races, teams, stages, globalProg])
 
-    }, [races, teams, markerChartDataArray])
+    const setDefaultChartData = () => {
+        setMarkerChartDataArray(getSessionChartData())
+    }
 
     const setRaceTeams = () => {
         const raceTeams = races.results[0]?.teams.map(team => {
@@ -74,56 +70,103 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
     }
 
     const chartSet = async (leftOffset) => {
+        if(!leftOffset) return;
 
         const markers_ = markerData?.filter(team => {
             return team.x == leftOffset;
         });
 
-        console.log(markers_, 'data')
         if (!markers_.length || markers_.length === 1) {
-            console.log('work')
+            rebuildDataChartArray(markers_)
             return;
-
         }
 
-        console.log(markers_, 'findMarkers')
         const raceTeams_ = race.map(team => {
             const find = markers_.find(t => t.color == team.color_code_hex)
 
             if (find) {
-                return {...team, isHide: true}
+                sessionStorage.setItem(team.color_code_hex, JSON.stringify({ isHide:true }));
+                return {...team, isHide: false}
             } else {
+                sessionStorage.setItem(team.color_code_hex, JSON.stringify({ isHide:false }));
                 return {...team, isHide: false}
             }
         })
+
 
         const markerChartData = markers_.map(team => {
             return {color: `#${team.color}`, angle: 1};
         })
 
+        setSessionChartData(leftOffset, markerChartData)
 
-        const findIndex = markerChartDataArray.findIndex(t => {
-            return t.x == leftOffset;
-        });
-
-        if(findIndex !== -1) {
-            markerChartDataArray[findIndex].data = markerChartData;
-        } else {
-            if(markerChartDataArray.length === 0) {
-                console.log(markers_, 'findMarkers')
-                await setMarkerChartDataArray([
-                    {
-                        x: leftOffset,
-                        data: markerChartData
-                    }
-                ])
-            } else {
-                await setMarkerChartDataArray(prevState => [...prevState, { x:leftOffset, data:markerChartDataArray }])
-            }
-        }
-        console.log(markerChartDataArray, 'ChartDataArray')
-
+        setMarkerChartDataArray(getSessionChartData())
         setRace(raceTeams_)
+    }
+
+    const rebuildDataChartArray = (markers_) => {
+        const dataChart = getSessionChartData();
+
+        if(dataChart) {
+            const dataChartFiltered = dataChart.map(dataC => {
+                const dataChart_ = dataC.data.filter(data_ => {
+                    const bool = data_.color != `#${markers_[0].color}`;
+                    console.log(bool, data_.color, `#${markers_[0].color}`)
+                    return bool
+                })
+                if(dataChart_.length == 1) {
+                    return { x:dataC.x, data: [] }
+                }
+
+                return { x:dataC.x, data: dataChart_ }
+            })
+
+            const dataLengthFilter = dataChartFiltered.filter(data => {
+                return data.data.length;
+            })
+
+            sessionStorage.setItem('chartData', JSON.stringify(dataLengthFilter))
+        }
+    }
+
+    const setSessionChartData = (leftOffset, markerChartData) => {
+        const chartData = sessionStorage.getItem('chartData');
+        if (!chartData) {
+            sessionStorage.setItem('chartData', JSON.stringify([
+                {
+                    x: leftOffset,
+                    data: markerChartData
+                }
+            ]))
+
+            return;
+        }
+        const data = JSON.parse(chartData);
+
+        const index = data.findIndex(d => {
+            return d.x == leftOffset;
+        })
+
+        if (index == -1) {
+            data.push({
+                x: leftOffset,
+                data: markerChartData
+            })
+        } else {
+            data[index].data = markerChartData;
+        }
+
+        sessionStorage.setItem('chartData', JSON.stringify(data));
+    }
+
+    const getSessionChartData = () => {
+        const sessionChartData = sessionStorage.getItem('chartData');
+
+        if (!sessionChartData) {
+            return []
+        }
+
+        return JSON.parse(sessionChartData)
     }
 
     return (
@@ -161,7 +204,8 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
                     {
                         markerChartDataArray.map((marker, index) => {
                             return (
-                                <div key={index} className={[classes.chart, !markerData.length ? classes.hide : ''].join(' ')}
+                                <div key={index}
+                                     className={[classes.chart, !marker.data.length ? classes.hide : ''].join(' ')}
                                      style={{left: marker.x || '200px'}}>
                                     <div className={classes.chartImg}>
                                         <img src={img_marker} alt={'img'}/>
@@ -176,18 +220,6 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
                             )
                         })
                     }
-
-                    {/* <div className={classes.chart} ref={unitMarker}>
-                        <div className={classes.chartImg}>
-                            <img src={img_marker} alt={'img'}/>
-                        </div>
-                       <div className={classes.radChart}>
-                           <RadialChart colorType={'literal'}
-                                        data={markerChartData}
-                                        width={60}
-                                        height={60}/>
-                       </div>
-                    </div>*/}
                 </div>
             </div>
         </div>

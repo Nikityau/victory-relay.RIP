@@ -63,7 +63,9 @@
 
     }
     .info {
-
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .info h3, .info h5 {
 
@@ -72,7 +74,7 @@
 
     }
     .info h5 {
-        left: 10px;
+        left: 0;
         font-size: 15px;
     }
 

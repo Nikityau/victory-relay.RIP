@@ -40,7 +40,8 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
         getAvlblTeams()
         finishCheck()
         checkTeam()
-    }, [stage, races, stages, isStageFinish, teams, isError, teamSelected, idResult])
+        console.log('test')
+    }, [stage, races, stages, isStageFinish, teams, isError, teamSelected, idResult, isStopWatchRun])
 
 
     const findStage = () => {
@@ -111,15 +112,16 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
             : setIsStageFinish(false)
     }
 
-    const startStopWatch = async (isStart, time) => {
+    const startStopWatch = async (isStart = true, time) => {
         setIsStopWatchRun(isStart)
 
         const req = await RelayAPIService.postTeamResult(teamSelected, token, id);
         setIdResult(req.id)
         localStorage.setItem('id_result', req.id);
     }
-    const stopStopWatch = async (isStart, time) => {
+    const stopStopWatch = async (isStart = false, time) => {
         setIsStopWatchRun(isStart)
+
         const id_result = localStorage.getItem('id_result')
         setIdResult(0)
         const res = await RelayAPIService.patchTeamResult(teamSelected, token, id_result)

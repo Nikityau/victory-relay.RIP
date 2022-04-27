@@ -31,8 +31,23 @@ const TeamMarker = ({team, stagesLength, teams, callback, markerId, isHide}) => 
         callback(markerRef.current.style.left, team.color_code_hex)
     }
 
+    const checkHideInfo = () => {
+        const data = sessionStorage.getItem(markersTeam.color_code_hex);
+
+        if(data) {
+            try {
+                const parsedData = JSON.parse(data);
+                return parsedData.isHide || false;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
     return (
-        <div className={[classes.marker, isHide ? classes.hide : ''].join(' ')} ref={markerRef} id={markerId}>
+        <div className={[classes.marker, checkHideInfo() ? classes.hide : ''].join(' ')} ref={markerRef} id={markerId}>
             <div className={classes.markerImg}>
                 <img src={marker} alt={'img'}/>
             </div>
