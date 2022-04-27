@@ -1,5 +1,5 @@
 .header {
-    height: 77px;
+    height: 90px;
 }
 
 .innerContainer {
@@ -14,6 +14,7 @@
     position: relative;
     max-width: 1380px;
 }
+
 .slider:after {
     content: "";
     position: absolute;
@@ -87,6 +88,31 @@
 
 @media screen and (max-width: 500px) {
     .header {
+
+    }
+    .burger {
+         display: none;
+    }
+    .logo {
         display: none;
+    }
+
+    .slider:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100px;
+        background: transparent;
+    }
+    .slider:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100px;
+        background: transparent;
     }
 }

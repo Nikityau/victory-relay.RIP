@@ -44,6 +44,7 @@ const WinnerCarousel = ({ races, teams}) => {
         <div className={[classes.containerCarousel, 'container'].join(' ')}>
             <Swiper
                 modules={[Autoplay]}
+                spaceBetween={200}
                 slidesPerView={3}
                 loop={true}
                 speed={5000}
@@ -56,7 +57,9 @@ const WinnerCarousel = ({ races, teams}) => {
                     Array.isArray(races?.results)
                         ? races?.results[0]?.stage_types.map((stage,index) => {
                             return (
-                                <SwiperSlide key={stage.id}><h3>Лучший результат у команды {findWinnerOnStage(index)} на этапе: {index + 1}</h3></SwiperSlide>
+                               <div className={classes.swiper}>
+                                   <SwiperSlide key={stage.id}><h3>Лучший результат у команды {findWinnerOnStage(index)} на этапе: {index + 1}</h3></SwiperSlide>
+                               </div>
                             )
                         })
                         : ''
