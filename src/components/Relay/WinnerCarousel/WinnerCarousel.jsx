@@ -10,6 +10,7 @@ import classes from "./WinnerCarousel.module.css"
 const WinnerCarousel = ({races, teams}) => {
 
     useEffect(() => {
+        console.log(teams, 'teams')
     }, [races, teams ,races.results])
 
     const findWinnerOnStage = (stage_num) => {
