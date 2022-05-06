@@ -1,16 +1,25 @@
 import React, {useEffect} from 'react';
-import {Autoplay} from 'swiper'
+import SwiperCore ,{Autoplay} from 'swiper'
+//import Autoplay from 'swiper/esm/components/autoplay/autoplay'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 //styles
-import 'swiper/css'
+import 'swiper/swiper-bundle.css'
 import './swiper.css'
 import classes from "./WinnerCarousel.module.css"
+
+//const { Autoplay } = require('swiper')
+//const { Swiper, SwiperSlide } = require('swiper/react')
+
+// require('swiper/css')
+// require('swiper/css/autoplay')
+
+
+SwiperCore.use([Autoplay])
 
 const WinnerCarousel = ({races, teams}) => {
 
     useEffect(() => {
-        console.log(teams, 'teams')
     }, [races, teams ,races.results])
 
     const findWinnerOnStage = (stage_num) => {

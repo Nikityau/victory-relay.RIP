@@ -1,14 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import {MemoryRouter} from "react-router-dom";
 
-import Auth from "./Auth";
+import MemRouter from "../../utils/TestUtils/MemRouter";
+
 import App from "../App/App";
+import Auth from "./Auth";
 
 describe('AUTH TEST', () => {
     test('input login test', () => {
-        render(<MemoryRouter>
-            <App/>
-        </MemoryRouter>)
+        render(MemRouter(<Auth/>))
 
         expect(1 + 1).toBe(2);
     })

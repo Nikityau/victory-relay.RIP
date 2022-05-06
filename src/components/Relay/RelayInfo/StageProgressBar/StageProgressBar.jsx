@@ -16,7 +16,7 @@ import {RadialChart} from "react-vis";
 
 //img
 import img_marker from '../../../../assets/icons/marker/marker.svg'
-import markSeries from "react-vis/es/plot/series/mark-series";
+//import markSeries from "react-vis/es/plot/series/mark-series";
 import team from "../../../Moderator/ModeratorAction/StageAction/TeamBoard/Team/Team";
 
 const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, stages, races}, ref) => {
