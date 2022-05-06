@@ -27,14 +27,21 @@ export const AppContext = React.createContext(null)
 const App = () => {
 
     const [updatePlug, setUpdatePlug] = useState(false)
-
+    const [interval, setTimeInterval] = useState(null);
     const [races_API, setRaces_API] = useState([]);
     const [stages_API, setStages_API] = useState([]);
     const [teams_API, setTeams_API] = useState([])
 
     useEffect(() => {
         getData().catch(e => console.log(e))
+        timer()
     }, [updatePlug])
+
+    useEffect(() => {
+        return () => {
+           clearInrvl()
+        }
+    }, [])
 
     const getData = async () => {
         await getResults_API()
@@ -45,6 +52,22 @@ const App = () => {
     const timeInterval = 1000 * 60 * 5
     //setInterval(getData, timeInterval)
 
+    const timer =  () => {
+        const intrvl = setInterval(async () => {
+            try {
+                await getData();
+            } catch (e) {
+                clearInrvl()
+                timer()
+            }
+        }, timeInterval);
+        setTimeInterval(intrvl);
+    }
+
+    const clearInrvl = () => {
+        clearInterval(interval);
+        setTimeInterval(null)
+    }
 
     async function getResults_API()  {
         const data_api = await RelayAPIController.getRace();
