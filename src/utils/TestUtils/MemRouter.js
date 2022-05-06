@@ -1,9 +1,9 @@
 import {MemoryRouter} from "react-router-dom";
 
 
-export default (component) => {
+export default (component, initialRoute = '') => {
     return (
-        <MemoryRouter>
+        <MemoryRouter initialEntries={[initialRoute]}>
             { component }
         </MemoryRouter>
     )

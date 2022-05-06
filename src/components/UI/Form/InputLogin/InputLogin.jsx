@@ -7,7 +7,7 @@ import classes from "./InputLogin.module.css";
 import {AppContext} from "../../../App/App";
 
 
-const InputLogin = ({setLogin}) => {
+const InputLogin = ({setLogin, login}) => {
 
     const appContext = useContext(AppContext)
 
@@ -19,8 +19,11 @@ const InputLogin = ({setLogin}) => {
 
     return (
         <div className={classes.loginInput}>
-            <img className={classes.imgDude} src={dude} alt={'img'} onClick={focusInput} onDragStart={appContext.prevDef}/>
-            <input ref={input} type={'text'} placeholder={'логин'} onChange={e => setLogin(e.target.value)}/>
+            <img data-testid={'login-focus-img'} className={classes.imgDude} src={dude} alt={'img'}
+                 onClick={focusInput} onDragStart={e => e.preventDefault()}/>
+            <input data-testid={'input-login'} ref={input} value={login} type={'text'}
+                   placeholder={'логин'}
+                   onChange={e => setLogin(e.target.value)}/>
         </div>
     );
 };

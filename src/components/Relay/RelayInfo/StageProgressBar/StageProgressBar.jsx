@@ -185,7 +185,7 @@ const StageProgressBar = React.forwardRef(({teams, globalProg, progressCircle, s
                             )
                         })
                     }
-                    <StageCircle complete={isStageComplete(progressCircle * stages.length + 1, globalProg)}
+                    <StageCircle complete={isStageComplete(progressCircle * (stages?.length || 0) + 1, globalProg)}
                                  icon={finish}/>
                 </div>
                 <div className={classes.teamMarkers}>

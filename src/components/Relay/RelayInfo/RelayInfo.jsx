@@ -28,7 +28,7 @@ const RelayInfo = ({stages, popUpCallback, teams, races}) => {
 
     const countGlobProg = () => {
         //globalProgress_API_F(progressPerPixel_API.circle_pix, globalProgCoeff_API)
-        setGlobalProgress(stages.length * progressPerPixel_API.circle_pix + 1)
+        setGlobalProgress((stages?.length || 0) * progressPerPixel_API.circle_pix + 1)
     }
 
     const changeProgress_API = () => {

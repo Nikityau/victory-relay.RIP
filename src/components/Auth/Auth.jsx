@@ -46,12 +46,12 @@ const Auth = () => {
            <div className={classes.wrapper}>
                <div className={classes.stepBack}>
                    <Link to={'/relay'}>
-                       <img src={stepBack} alt={'img'} onDragStart={appContext.prevDef}/>
+                       <img src={stepBack} alt={'img'} onDragStart={e => e.preventDefault()}/>
                    </Link>
                </div>
                <div className={classes.upBar}>
                    <div className={classes.logo}>
-                       <img src={logoRGUPS} alt={'logo'} onDragStart={appContext.prevDef}/>
+                       <img src={logoRGUPS} alt={'logo'} onDragStart={e => e.preventDefault()}/>
                    </div>
                    <div className={classes.descr}>
                        <h3>Эстафета Победы</h3>
@@ -62,8 +62,8 @@ const Auth = () => {
                    <div className={classes.form}>
                        <form>
                            <div className={classes.ioWrapper}>
-                               <InputLogin setLogin={setLogin}/>
-                               <InputPassword setPassword={setPassword}/>
+                               <InputLogin login={login} setLogin={setLogin}/>
+                               <InputPassword password={password} setPassword={setPassword}/>
                                <div className={[classes.error, isError ? classes.isError : ""].join(' ')}>
                                    <h2>Неправильно введены данные</h2>
                                </div>

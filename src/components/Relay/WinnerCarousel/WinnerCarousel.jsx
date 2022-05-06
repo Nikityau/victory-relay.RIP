@@ -20,7 +20,7 @@ SwiperCore.use([Autoplay])
 const WinnerCarousel = ({races, teams}) => {
 
     useEffect(() => {
-    }, [races, teams ,races.results])
+    }, [races, teams ,races?.results])
 
     const findWinnerOnStage = (stage_num) => {
         if(!Array.isArray(races.results)) return '';
@@ -51,7 +51,7 @@ const WinnerCarousel = ({races, teams}) => {
 
 
     return (
-        <div className={[classes.containerCarousel, 'container'].join(' ')}>
+        <div data-testid={'carousel'} className={[classes.containerCarousel, 'container'].join(' ')}>
             {
                 Array.isArray(races?.results)
                     ?  <Swiper

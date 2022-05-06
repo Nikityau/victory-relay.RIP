@@ -8,7 +8,7 @@ import classes from "./InputPassword.module.css";
 
 import {AppContext} from "../../../App/App";
 
-const InputPassword = ({setPassword}) => {
+const InputPassword = ({setPassword, password}) => {
 
     const appContext = useContext(AppContext)
 
@@ -31,9 +31,12 @@ const InputPassword = ({setPassword}) => {
 
     return (
         <div className={classes.passwordInput}>
-            <img src={lock} alt={'lock'} className={classes.lockImg} onClick={focusInput} onDragStart={appContext.prevDef}/>
-            <img src={isHide ? eyeClose : eye} alt={'eye'} className={classes.eyeImg} onClick={changePasswordVisibility} onDragStart={appContext.prevDef}/>
-            <input type={'password'} ref={input} placeholder={'пароль'} onChange={e => setPassword(e.target.value)}/>
+            <img data-testid={'password-focus-img'} src={lock} alt={'lock'} className={classes.lockImg}
+                 onClick={focusInput} onDragStart={e => e.preventDefault()}/>
+            <img src={isHide ? eyeClose : eye} alt={'eye'} className={classes.eyeImg} onClick={changePasswordVisibility} onDragStart={e => e.preventDefault()}/>
+            <input data-testid={'password-input'} value={password} type={'password'} ref={input}
+                   placeholder={'пароль'}
+                   onChange={e => setPassword(e.target.value)}/>
         </div>
     );
 };

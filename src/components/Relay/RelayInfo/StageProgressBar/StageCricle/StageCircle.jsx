@@ -11,7 +11,7 @@ const StageCircle = ({complete = false, icon}) => {
 
     return (
         <div className={[classes.circle, complete ? classes.circleComplete : ""].join(' ')}>
-            <img src={icon} alt="stage icon" onDragStart={appContext.prevDef}/>
+            <img src={icon} alt="stage icon" onDragStart={e => e.preventDefault()}/>
         </div>
     );
 };

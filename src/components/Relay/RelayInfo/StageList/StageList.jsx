@@ -50,10 +50,10 @@ const StageList = ({stages, currentStage, popUpCallback, races, teams}) => {
             <div className={classes.desktopVersion}>
                 <div className={classes.swiperWrapper}>
                     <div className={classes.swiperLeftImg}>
-                        <img src={swiperButton} alt={'img'} onClick={sliderLeft} className={!isLeftStop ? classes.isOff : ""} onDragStart={appContext.prevDef}/>
+                        <img src={swiperButton} alt={'img'} onClick={sliderLeft} className={!isLeftStop ? classes.isOff : ""} onDragStart={e => e.preventDefault()}/>
                     </div>
                     <div className={classes.swiperRightImg}>
-                        <img src={swiperButton} alt={'img'} onClick={sliderRight} className={!isRightStop ? classes.isOff : ""} onDragStart={appContext.prevDef}/>
+                        <img src={swiperButton} alt={'img'} onClick={sliderRight} className={!isRightStop ? classes.isOff : ""} onDragStart={e => e.preventDefault()}/>
                     </div>
                     <Swiper className={classes.swiperDesktop}
                             allowTouchMove={true}
