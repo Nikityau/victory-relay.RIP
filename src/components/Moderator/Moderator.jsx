@@ -38,7 +38,6 @@ const Moderator = ({stages, teams, races, plugCallback}) => {
     useEffect(() => {
         getModeratorInfo()
         checkFinishTeams()
-        console.log(moderator)
     }, [token, teams, isAccess, isStageRun])
 
     const getModeratorInfo = async () => {
