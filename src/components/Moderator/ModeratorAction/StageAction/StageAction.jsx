@@ -15,6 +15,7 @@ import classes from "./StageAction.module.css";
 import Clock from "../../../Timer/Clock/Clock";
 import SSButon from "../../../UI/Form/SSButton/Rectangle/SSButon";
 import Rounded from "../../../UI/Form/SSButton/Rounded/Rounded";
+import TeamAction from "./TeamAcation/TeamAction";
 
 //context
 export const TeamSelectedContext = React.createContext(null);
@@ -110,7 +111,7 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
             : setIsStageFinish(false)
     }
 
-    const startStopWatch = async (isStart = true, time) => {
+   /* const startStopWatch = async (isStart = true, time) => {
         setIsStopWatchRun(isStart)
 
         console.log(teamSelected, id, 'fetch')
@@ -125,7 +126,7 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
         setIdResult(0)
         const res = await RelayAPIService.patchTeamResult(teamSelected, token, id_result)
         plugCallback()
-    }
+    }*/
 
     const finish = () => {
         setStageRun(false)
@@ -152,22 +153,29 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
                                     <h3>Выберите команду</h3>
                                 </div>
                                 <div className={classes.teamSelect}>
-                                    <TeamSelect stage={stageRace} teams={avlblTeams} selectTeam={selectTeam}
+                                    {
+                                        avlblTeams.map(team => {
+                                            return (
+                                                <TeamAction key={team.id} stage={stageRace} team={team} token={token}/>
+                                            )
+                                        })
+                                    }
+                                   {/* <TeamSelect stage={stageRace} teams={avlblTeams} selectTeam={selectTeam}
                                                 isOpen={isOpen} changeOpenState={changeOpenState}
-                                                teamSelected={teamSelected}/>
+                                                teamSelected={teamSelected}/>*/}
                                 </div>
                             </div>
                             <div className={classes.timerContainer}>
                                 <div className={classes.timer}>
-                                    <Clock isRun={isStopWatchRun}/>
-                                   <div className={[classes.buttons, isError ? classes.buttonsInvs : ''].join(' ')}>
+                                   {/* <Clock isRun={isStopWatchRun}/>*/}
+                                  {/* <div className={[classes.buttons, isError ? classes.buttonsInvs : ''].join(' ')}>
                                        <div className={classes.desktop}>
                                            <SSButon isStart={isStopWatchRun} startCallback={startStopWatch} stopCallback={stopStopWatch}/>
                                        </div>
                                         <div className={classes.phone}>
                                             <Rounded isStart={isStopWatchRun} startCallback={startStopWatch} stopCallback={stopStopWatch}/>
                                         </div>
-                                   </div>
+                                   </div>*/}
                                 </div>
                             </div>
                         </div>

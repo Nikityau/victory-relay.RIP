@@ -66,6 +66,8 @@ export default class RelayAPIService {
         })
     }
 
+
+
     static postTeamResult = async (team, token, stage_id) => {
         try {
             const team_req = await axios.post(`https://victory-relay.herokuapp.com/api/teams/${team.id}/results/`,
@@ -100,6 +102,12 @@ export default class RelayAPIService {
 
            return null
        }
+    }
+
+    static getTeamResults = async (team_id) => {
+        const { data } = await axios.get(`https://victory-relay.herokuapp.com/api/teams/${team_id}/results/`)
+
+        return data;
     }
 
     static finishTeam = async (race_id, team_id, token) => {
