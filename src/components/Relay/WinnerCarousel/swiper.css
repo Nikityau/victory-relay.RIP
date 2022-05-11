@@ -6,6 +6,7 @@
     align-items: center;
 }
 .swiper-slide {
+    min-width: 350px !important;
     display: flex;
     align-items: center;
 }

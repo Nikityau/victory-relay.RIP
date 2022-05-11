@@ -11,9 +11,6 @@ const TeamAction = ({team, stage, token}) => {
     const [isFinished, setIsFinished] = useState(false)
 
     useEffect(() => {
-        console.log(stage.id, 'stage_id')
-        console.log(team.id, 'team_id')
-        console.log(token, 'token')
         CheckTeamFinished();
     }, [])
 
@@ -46,8 +43,6 @@ const TeamAction = ({team, stage, token}) => {
 
         if(!data) return;
 
-        console.log('data has')
-
         if(!data[0]?.id) return;
 
         localStorage.setItem(`team_${team.id}_result_token`,data[0]?.id)
@@ -56,10 +51,8 @@ const TeamAction = ({team, stage, token}) => {
     const Start = async () => {
         setIsStart(true);
 
-
-        console.log(team.id,token, stage.id, 'valid data')
         const req = await RelayAPIService.postTeamResult(team, token, stage.id)
-        console.log(req, 'start')
+
         localStorage.setItem(`team_${team.id}_result_token`, req?.id || -1);
 
         /*setIsStopWatchRun(isStart)
@@ -75,7 +68,7 @@ const TeamAction = ({team, stage, token}) => {
         const id_result = localStorage.getItem(`team_${team.id}_result_token`)
 
         const res = await RelayAPIService.patchTeamResult(team, token, id_result)
-        console.log(res, 'stop')
+
         CheckTeamFinished();
 
         /*setIsStopWatchRun(isStart)
