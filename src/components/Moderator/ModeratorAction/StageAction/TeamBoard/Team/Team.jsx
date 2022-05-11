@@ -24,7 +24,9 @@ const Team = ({team, stage}) => {
 
         if(!teamResult) return "-";
 
-        const result = teamResult.result;
+        const result = teamResult?.result;
+
+        if(!result) return "-";
 
         const double_points = result.indexOf(':');
         const ms = result.indexOf('.');

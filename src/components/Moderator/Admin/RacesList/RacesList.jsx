@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import classes from "./RacesList.module.css";
 import Race from "./Race/Race";
 
 const RacesList = ({races, children}) => {
+
+    useEffect(() => {
+    }, [races])
+
     return (
         <div className={classes.container}>
             <div className={classes.title}>

@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {useHistory, useParams} from "react-router-dom";
+import {useHistory, useLocation, useParams} from "react-router-dom";
 
 //components
 import Header from "./Header/Header";
@@ -22,6 +22,7 @@ export const ModeratorContext = React.createContext(null);
 const Moderator = ({stages, teams, races, plugCallback}) => {
 
     const history = useHistory();
+    const location = useLocation()
 
     const {token} = useParams();
 
@@ -105,7 +106,7 @@ const Moderator = ({stages, teams, races, plugCallback}) => {
                             {
                                 moderator.role == 'admin'
                                     ?
-                                    <div className={[classes.adminButton, isStageRun ? classes.stagerun : ''].join(' ')}>
+                                    <div style={{ display: location.pathname.includes('stage-race') ? "none" : "block" }} className={[classes.adminButton, isStageRun ? classes.stagerun : ''].join(' ')}>
                                         <button onClick={toAdminPanel} >панель администратора</button>
                                     </div>
                                     : ''

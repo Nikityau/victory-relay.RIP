@@ -115,8 +115,8 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
 
         console.log(teamSelected, id, 'fetch')
         const req = await RelayAPIService.postTeamResult(teamSelected, token, id);
-        setIdResult(req.id)
-        localStorage.setItem('id_result', req.id);
+        setIdResult(req?.id || -1)
+        localStorage.setItem('id_result', req?.id || -1);
     }
     const stopStopWatch = async (isStart = false, time) => {
         setIsStopWatchRun(isStart)

@@ -17,7 +17,6 @@ const Race = ({race}) => {
     const error = useContext(ErrorContext)
 
     useEffect(() => {
-
     }, [])
 
     const setRaceState = async () => {

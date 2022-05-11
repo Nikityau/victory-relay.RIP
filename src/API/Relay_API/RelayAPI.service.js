@@ -1,4 +1,5 @@
 import axios from "axios";
+import {assertCallerMetadata} from "@babel/core/lib/config/validation/option-assertions";
 
 export default class RelayAPIService {
     static async getActiveRace () {
@@ -66,35 +67,50 @@ export default class RelayAPIService {
     }
 
     static postTeamResult = async (team, token, stage_id) => {
-        console.log(stage_id)
-        //const team_req = autoDrawEnabled
-        const team_req = await axios.post(`https://victory-relay.herokuapp.com/api/teams/${team.id}/results/`,
-            {
-                stage_type: stage_id
-            }, {
-            headers: {
-                'Authorization': `Token ${token}`
-            }
-        })
-        return team_req.data;
+        try {
+            const team_req = await axios.post(`https://victory-relay.herokuapp.com/api/teams/${team.id}/results/`,
+                {
+                    stage_type: stage_id
+                }, {
+                    headers: {
+                        'Authorization': `Token ${token}`
+                    }
+                })
+            return team_req.data;
+        } catch (e) {
+            console.log(e.message, 'http')
+
+            return null
+        }
     }
     static patchTeamResult = async (team, token, stage_id) => {
-        const team_req = await axios.patch(`https://victory-relay.herokuapp.com/api/teams/${team.id}/results/${stage_id}/`,
-            {
-                stage_type: stage_id
-            }, {
+       try {
+           const team_req = await axios.patch(`https://victory-relay.herokuapp.com/api/teams/${team.id}/results/${stage_id}/`,
+               {
+                   stage_type: stage_id
+               }, {
+                   headers: {
+                       'Authorization': `Token ${token}`
+                   }
+               })
+
+           return team_req
+       } catch (e) {
+           console.log(e.message, 'error')
+
+           return null
+       }
+    }
+
+    static finishTeam = async (race_id, team_id, token) => {
+        try {
+            const team_req = await axios.get(`https://victory-relay.herokuapp.com/api/race/${race_id}/teams/${team_id}/finish/`, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
             })
-        return team_req
-    }
-
-    static finishTeam = async (race_id, team_id, token) => {
-        const team_req = await axios.get(`https://victory-relay.herokuapp.com/api/race/${race_id}/teams/${team_id}/finish/`, {
-            headers: {
-                'Authorization': `Token ${token}`
-            }
-        })
+        } catch (e) {
+            console.log(e.message)
+        }
     }
 }

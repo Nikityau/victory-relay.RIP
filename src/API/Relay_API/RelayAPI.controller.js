@@ -38,7 +38,7 @@ export default class RelayAPIController {
 
     static isRacesActive = async () => {
         const {data} = await RelayAPIService.getActiveRace();
-        return data.length ? true : false
+        return data?.length ? true : false
     }
 
     static async getSages() {
