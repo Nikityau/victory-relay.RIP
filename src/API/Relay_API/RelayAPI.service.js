@@ -2,14 +2,19 @@ import axios from "axios";
 
 export default class RelayAPIService {
     static async getActiveRace () {
-        const { data } = await axios.get('https://victory-relay.herokuapp.com/api/race/', {
-            params: {
-                is_active:1,
-                limit:1
-            }
-        });
+       try {
+           const { data } = await axios.get('https://victory-relay.herokuapp.com/api/race/', {
+               params: {
+                   is_active:1,
+                   limit:1
+               }
+           });
 
-        return data;
+           return data;
+       } catch (e) {
+
+           return null;
+       }
     }
     static getAllRaces = async () => {
         const { data } = await axios.get('https://victory-relay.herokuapp.com/api/race/');
@@ -61,6 +66,7 @@ export default class RelayAPIService {
     }
 
     static postTeamResult = async (team, token, stage_id) => {
+        console.log(stage_id)
         //const team_req = autoDrawEnabled
         const team_req = await axios.post(`https://victory-relay.herokuapp.com/api/teams/${team.id}/results/`,
             {

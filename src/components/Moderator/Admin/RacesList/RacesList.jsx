@@ -13,7 +13,7 @@ const RacesList = ({races, children}) => {
                 {
                     races?.results?.map(race => {
                         return (
-                            <Race key={race.number} race={race}/>
+                            <Race key={race.id} race={race}/>
                         )
                     })
                 }

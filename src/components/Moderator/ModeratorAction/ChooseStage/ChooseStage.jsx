@@ -44,7 +44,7 @@ const ChooseStage = ({stages, setStageRun, token, moderator, isAccess}) => {
         setIsError(false)
 
         setStageRun(true);
-        history.replace(`/admin/${token}/stage-race/${chosen.id}/${chosen.stageNumber}/${chosen.title}`);
+        history.replace(`/admin/${token}/stage-race/${chosen.id}/${chosen.id}/${chosen.title}`);
     }
 
     return (

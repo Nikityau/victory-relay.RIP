@@ -23,7 +23,7 @@ const Select = ({stages, chosen, setIsOpenList, isOpenList, choose}) => {
                             stages?.map((stage, index) => {
                                 return (
                                     <div key={stage.id} className={classes.option}>
-                                        <Option stageNum={index} chooseCallback={choose} setIsOpenList={setIsOpenList} stage={stage} isOpen={isOpenList}/>
+                                        <Option stageNum={stage.id - 1} chooseCallback={choose} setIsOpenList={setIsOpenList} stage={stage} isOpen={isOpenList}/>
                                         <div className={classes.optionLine}/>
                                     </div>
                                 )

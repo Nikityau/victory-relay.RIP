@@ -37,13 +37,6 @@ const Header = ({sideBarCallback, idSideBarOpen, moderator, adminCallback, stage
                     </div>
                 </div>
             </div>
-            {
-                moderator.role == 'admin'
-                    ?  <div className={[classes.adminButton, isStageRun ? classes.stagerun : ''].join(' ')}>
-                        <ButtonBlue text={'панель администратора'} callback={adminCallback}/>
-                    </div>
-                    : ''
-            }
             <div className={classes.rightSide}>
                 <div className={classes.logoImg}>
                     <img src={logo} alt={'img'} onDragStart={preventDef}/>

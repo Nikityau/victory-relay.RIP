@@ -30,3 +30,7 @@
     box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.37), inset 3px 1px 15px rgba(255, 255, 255, 0.5);
     border-radius: 20px;
 }
+
+@media screen and (max-width: 500px) {
+
+}

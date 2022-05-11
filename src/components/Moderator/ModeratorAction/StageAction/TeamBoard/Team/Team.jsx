@@ -17,8 +17,14 @@ const Team = ({team, stage}) => {
     useEffect(() => {
     }, [stage, team])
 
-    const getResult = (result) => {
-        if(!result) return '??';
+    const getResult = () => {
+        if(!Array.isArray(team?.results)) return '-';
+
+        const teamResult = team.results.find(res => res.stage_type == stage.id)
+
+        if(!teamResult) return "-";
+
+        const result = teamResult.result;
 
         const double_points = result.indexOf(':');
         const ms = result.indexOf('.');
@@ -30,7 +36,7 @@ const Team = ({team, stage}) => {
         <div className={classes.container}>
             <div className={classes.hex} style={{ background: `#${team?.color_code_hex}` }}/>
             <div className={classes.data}>
-                <input value={getResult(team?.results[stage?.stageNumber - 1]?.result) || '-'} onChange={() => {}}/>
+                <input value={getResult() || '-'} onChange={() => {}}/>
                 <div className={[classes.current, teamSelected?.id == team?.id ? classes.currentThis : ""].join(' ')}>
                     <img src={current} alt={'img'} onDragStart={appContext.prevDef}/>
                 </div>

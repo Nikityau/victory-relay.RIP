@@ -13,6 +13,8 @@ import ModeratorAPIController from "../../API/Moderator_API/ModeratorAPI.control
 //styles
 import classes from "./Moderator.module.css";
 import RelayAPIService from "../../API/Relay_API/RelayAPI.service";
+import Instructions from "../Instruction/Instructions";
+import ButtonBlue from "../UI/Form/ButtonBlue/ButtonBlue";
 
 //context
 export const ModeratorContext = React.createContext(null);
@@ -36,6 +38,7 @@ const Moderator = ({stages, teams, races, plugCallback}) => {
     useEffect(() => {
         getModeratorInfo()
         checkFinishTeams()
+        console.log(moderator)
     }, [token, teams, isAccess, isStageRun])
 
     const getModeratorInfo = async () => {
@@ -89,14 +92,33 @@ const Moderator = ({stages, teams, races, plugCallback}) => {
     return (
         <ModeratorContext.Provider value={moder}>
             <div className={classes.moderatorContainer}>
-                <SideBar stages={stages} teams={teams} isStageRun={isStageRun} races={races} exit={exit}
-                         moderator={moderator} isSideBarOpen={isSideBarOpen} isAccess={isAccess}/>
+                <SideBar stages={stages}
+                         teams={teams}
+                         isStageRun={isStageRun}
+                         races={races}
+                         exit={exit}
+                         moderator={moderator}
+                         isSideBarOpen={isSideBarOpen}
+                         isAccess={isAccess}/>
                 <div className={classes.wrapper}>
                     <div className={classes.main}>
-                        <Header isStageRun={isStageRun} adminCallback={toAdminPanel} sideBarCallback={openSideBar} moderator={moderator}
+                        <Instructions/>
+                            {
+                                moderator.role == 'admin'
+                                    ?
+                                    <div className={[classes.adminButton, isStageRun ? classes.stagerun : ''].join(' ')}>
+                                        <button onClick={toAdminPanel} >панель администратора</button>
+                                    </div>
+                                    : ''
+                            }
+                        <Header isStageRun={isStageRun}
+                                adminCallback={toAdminPanel}
+                                sideBarCallback={openSideBar}
+                                moderator={moderator}
                                 idSideBarOpen={isSideBarOpen}/>
                         <div className={classes.actionWrapper}>
-                            <ModeratorAction plugCallback={plugCallback} isStageRun={isStageRun} token={token}
+                            <ModeratorAction plugCallback={plugCallback}
+                                             isStageRun={isStageRun} token={token}
                                              isAccess={isAccess} exit={exit} setStageRun={setIsStageRun}
                                              moderator={moderator} stages={stages} teams={teams} races={races}/>
                         </div>

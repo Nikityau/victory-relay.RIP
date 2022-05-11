@@ -17,26 +17,28 @@ const Race = ({race}) => {
     const error = useContext(ErrorContext)
 
     useEffect(() => {
+        console.log(race, 'race')
     }, [])
 
     const setRaceState = async () => {
         error.setPlug(prevState => !prevState);
 
-        if(race?.is_finish) return
+        if (race?.is_finish) return
 
-        if(!race?.is_finish && !race?.is_active) {
-            if(await RelayAPIController.isRacesActive()) {
+        if (!race?.is_finish && !race?.is_active) {
+            if (await RelayAPIController.isRacesActive()) {
                 error.setTextError('Аквтиный забег может быть только один');
                 error.setIsErrorInvoke(true);
                 return;
             }
 
-            const start = await RelayAPIService.startRace(2,moder.token)
+            const start = await RelayAPIService.startRace(race.id, moder.token)
+
         }
 
-        if(race?.is_active && !race?.is_finish) {
+        if (race?.is_active && !race?.is_finish) {
             try {
-                const finish = await RelayAPIService.finishRace(2, moder.token)
+                const finish = await RelayAPIService.finishRace(race.id, moder.token)
             } catch (e) {
                 error.setTextError('Не все команды закончили забег');
                 error.setIsErrorInvoke(true)
@@ -57,6 +59,12 @@ const Race = ({race}) => {
             </div>
             <div className={classes.raceInfo}>
                 <p>Забег заверешен: {race?.is_finish ? "Да" : "Нет"}</p>
+            </div>
+            <div>
+                <p>id забега: {race.id || "??"}</p>
+            </div>
+            <div>
+                <p>номер забега: {race.number || "??"}</p>
             </div>
             {
                 race?.is_finish

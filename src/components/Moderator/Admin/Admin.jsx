@@ -69,7 +69,7 @@ const Admin = ({moderator, token}) => {
                <Error isInvoke={isErrorInvoke} textError={textError} close={setIsErrorInvoke}/>
                <div className={classes.innerContainer}>
                    <div className={classes.adminNav}>
-                       <ButtonBlue text={'выбор этапа'} callback={chooseStage}/>
+                       <button  onClick={chooseStage}>выбор этапа</button>
                    </div>
                    <div className={classes.adminPanel}>
                        <RacesList races={allRaces}>

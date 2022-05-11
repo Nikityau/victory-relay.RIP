@@ -13,13 +13,13 @@ const Option = ({stage, chooseCallback, isArrow = false, isOpen, stageNum = 0, s
 
     return (
         <div className={classes.optionContainer} onClick={() => {
-            chooseCallback(stage, stageNum + 1); setIsOpenList(false)
+            chooseCallback(stage, stageNum); setIsOpenList(false)
         }}>
             <div className={classes.img}>
                 <img src={stage?.icon} alt={''} onDragStart={appContext.prevDef}/>
             </div>
             <div className={classes.info}>
-                <h3>Этап {stage?.stageNumber || stageNum + 1}</h3>
+                <h3>Этап {stage?.id || stageNum + 1}</h3>
                 <h5> {stage?.title} </h5>
             </div>
             <div className={[classes.arrow, isArrow ? classes.show : classes.hide].join(' ')}>

@@ -12,7 +12,6 @@ import RelayAPIService from "../../../../API/Relay_API/RelayAPI.service";
 
 //styles
 import classes from "./StageAction.module.css";
-import {logDOM} from "@testing-library/react";
 import Clock from "../../../Timer/Clock/Clock";
 import SSButon from "../../../UI/Form/SSButton/Rectangle/SSButon";
 import Rounded from "../../../UI/Form/SSButton/Rounded/Rounded";
@@ -40,7 +39,6 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
         getAvlblTeams()
         finishCheck()
         checkTeam()
-        console.log('test')
     }, [stage, races, stages, isStageFinish, teams, isError, teamSelected, idResult, isStopWatchRun])
 
 
@@ -102,7 +100,7 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
 
         avlblTeams?.map(team => {
             const t_c = teams.find(t => t.id == team.id);
-            if (t_c.results[number - 1]?.result) {
+            if (t_c?.results[number - 1]?.result) {
                 ++coeffCmpltnss.current;
             }
         })
@@ -115,6 +113,7 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
     const startStopWatch = async (isStart = true, time) => {
         setIsStopWatchRun(isStart)
 
+        console.log(teamSelected, id, 'fetch')
         const req = await RelayAPIService.postTeamResult(teamSelected, token, id);
         setIdResult(req.id)
         localStorage.setItem('id_result', req.id);
@@ -145,13 +144,12 @@ const StageAction = ({stages, teams, setStageRun, races, token, isAccess, plugCa
                                     <h3>Выбранный этап</h3>
                                 </div>
                                 <div className={classes.stage}>
-                                    <Stage stage={stageRace} stageNumber={number}/>
+                                    <Stage stage={stageRace} stageNumber={id}/>
                                 </div>
                             </div>
                             <div className={classes.chooseTeam}>
                                 <div className={classes.title}>
                                     <h3>Выберите команду</h3>
-                                    {/*<h3 className={[classes.error, isError ? classes.error_show : ''].join(' ')}>Неверно выбрана команда</h3>*/}
                                 </div>
                                 <div className={classes.teamSelect}>
                                     <TeamSelect stage={stageRace} teams={avlblTeams} selectTeam={selectTeam}
