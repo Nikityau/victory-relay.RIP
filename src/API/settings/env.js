@@ -1,0 +1,1 @@
+export const URL_REQUEST_BASE = "http://localhost:80"

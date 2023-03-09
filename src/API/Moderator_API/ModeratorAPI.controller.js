@@ -3,11 +3,13 @@ import axios from "axios";
 import RelayAPIController from "../Relay_API/RelayAPI.controller";
 import RelayAPIService from "../Relay_API/RelayAPI.service";
 
+import {URL_REQUEST_BASE} from "../settings/env";
+
 export default class ModeratorAPIController {
 
     static async login(login, password) {
        try {
-           const req_login = await axios.post('https://victory-relay.herokuapp.com/api/auth/token/login/', {
+           const req_login = await axios.post(`${URL_REQUEST_BASE}/api/auth/token/login/`, {
                username: login,
                password
            })
@@ -18,7 +20,7 @@ export default class ModeratorAPIController {
        }
     }
     static async logOut(token) {
-        const log_out = await axios.post('https://victory-relay.herokuapp.com/api/auth/token/logout/', {}, {
+        const log_out = await axios.post(`${URL_REQUEST_BASE}/api/auth/token/logout/`, {}, {
             headers: {
                 'Authorization': `Token ${token}`
             }
@@ -26,7 +28,7 @@ export default class ModeratorAPIController {
     }
     static async getMe(token) {
         try {
-            const moder_req = await axios.get('https://victory-relay.herokuapp.com/api/auth/users/me/', {
+            const moder_req = await axios.get(`${URL_REQUEST_BASE}/api/auth/users/me/`, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
