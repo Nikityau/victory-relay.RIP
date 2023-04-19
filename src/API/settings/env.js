@@ -1,1 +1,1 @@
-export const URL_REQUEST_BASE = "http://localhost:80"
+export const URL_REQUEST_BASE = "http://backend:8000"
