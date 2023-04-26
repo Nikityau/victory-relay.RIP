@@ -22,20 +22,25 @@ const Stage = ({stage, stageNum, teams, races}) => {
         calculateProgress()
         changeProgress();
         changeShowState();
-    }, [progress,teams, isShowMore])
+        console.log('here')
+    }, [progress, teams, isShowMore])
 
     const changeShowState = () => {
-        if(!container.current || !infoBlock.current) return;
+        if (!container.current || !infoBlock.current) return;
 
-        if(isShowMore) {
+        if (isShowMore) {
             const element = infoBlock.current.children[Math.floor((infoBlock.current.children.length - 3) / 2)];
-            const height = element.offsetTop + element.clientHeight * 1.7;
+            if(!element) {
+                return;
+            }
+
+            const height = (element?.offsetTop || 0) + element.clientHeight * 1.7;
             container.current.style.height = height + 'px';
             return;
         }
 
-        if(!isShowMore) {
-            const height = infoBlock.current.clientHeight + infoBlock.current.offsetTop;
+        if (!isShowMore) {
+            const height = infoBlock.current.clientHeight + (infoBlock.current?.offsetTop || 0);
             container.current.style.height = height + 50 + 'px';
             return;
         }

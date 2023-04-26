@@ -9,6 +9,7 @@
     "test-2": "react-scripts test --transformIgnorePatterns \\\"node_modules/(?!your-module-name)/\\\"",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://backend:8000/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -28,9 +29,6 @@
     ]
   },
   "dependencies": {
-    "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "13.1.1",
-    "@testing-library/user-event": "13.5.0",
     "axios": "0.26.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
@@ -45,6 +43,9 @@
     "@babel/cli": "7.17.10",
     "@babel/core": "7.17.10",
     "@babel/preset-env": "7.17.10",
-    "jest": "28.0.3"
+    "jest": "28.0.3",
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "13.1.1",
+    "@testing-library/user-event": "13.5.0"
   }
 }
