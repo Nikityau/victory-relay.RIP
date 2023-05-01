@@ -14,20 +14,20 @@ const ModeratorAction = ({stages, teams, setStageRun, exit, moderator, token, ra
     return (
         <div className={classes.container}>
             <Switch>
-                <Route path={`/admin/${token}/choose-stage`}>
+                <Route path={`/relay-admin/${token}/choose-stage`}>
                     <ChooseStage isAccess={isAccess} moderator={moderator} token={token} stages={stages} setStageRun={setStageRun}/>
                 </Route>
-                <Route path={`/admin/${token}/stage-race/:id/:number/:stage`}>
+                <Route path={`/relay-admin/${token}/stage-race/:id/:number/:stage`}>
                     <StageAction plugCallback={plugCallback} isAccess={isAccess} stages={stages} teams={teams} setStageRun={setStageRun} races={races} token={token}/>
                 </Route>
-                <Route path={`/admin/${token}/exit`}>
+                <Route path={`/relay-admin/${token}/exit`}>
                     <ExitBar isStageRun={isStageRun} exit={exit} isAccess={isAccess} stages={stages} moderator={moderator} teams={teams} races={races}/>
                 </Route>
-                <Route path={`/admin/${token}/admin-panel`}>
+                <Route path={`/relay-admin/${token}/admin-panel`}>
                     <Admin moderator={moderator} token={token} />
                 </Route>
-                <Route path={`/admin/${token}`}>
-                    <Redirect to={`/admin/${token}/choose-stage`}/>
+                <Route path={`/relay-admin/${token}`}>
+                    <Redirect to={`/relay-admin/${token}/choose-stage`}/>
                 </Route>
             </Switch>
         </div>

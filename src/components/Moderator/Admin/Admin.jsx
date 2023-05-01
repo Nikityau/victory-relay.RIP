@@ -59,7 +59,7 @@ const Admin = ({moderator, token}) => {
     }
 
     const chooseStage = () => {
-        history.replace(`/admin/${token}/choose-stage`);
+        history.replace(`/relay-admin/${token}/choose-stage`);
     }
 
 

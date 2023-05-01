@@ -57,13 +57,13 @@ const ModeratorNavigation = ({isRun, moderator, token}) => {
                 <div ref={lineRef} id={'moder-line'} className={classes.line}/>
                 <div onClick={toHome} ref={homeRef}
                      className={[classes.home, isRun ? classes.touchPrevent : ''].join(' ')}>
-                    <Link to={`/admin/${token}/choose-stage`}>
+                    <Link to={`/relay-admin/${token}/choose-stage`}>
                         <img src={location.pathname.includes('stage') ? redHome : home} alt={'img'}/>
                     </Link>
                 </div>
                 <div onClick={toExit} ref={exitRef}
                      className={[classes.exit, isRun ? classes.touchPrevent : ''].join(' ')}>
-                    <Link to={`/admin/${token}/exit`}>
+                    <Link to={`/relay-admin/${token}/exit`}>
                         <img src={location.pathname.includes('exit') ? redEXit : exit} alt={'img'}/>
                     </Link>
                 </div>

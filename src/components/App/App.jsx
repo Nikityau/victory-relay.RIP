@@ -148,9 +148,9 @@ const App = () => {
                            </Switch>
                        </Route>
 
-                       <Route path={'/admin'}>
+                       <Route path={'/relay-admin'}>
                            <Switch>
-                               <Route path={'/admin/:token'}>
+                               <Route path={'/relay-admin/:token'}>
                                    <Moderator plugCallback={plugCallback} stages={stages_API}  teams={teams_API} races={races_API}/>
                                </Route>
                            </Switch>

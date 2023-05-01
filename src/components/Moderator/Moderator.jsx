@@ -76,7 +76,7 @@ const Moderator = ({stages, teams, races, plugCallback}) => {
 
 
     const toAdminPanel = () => {
-        history.replace(`/admin/${token}/admin-panel`)
+        history.replace(`/relay-admin/${token}/admin-panel`)
     }
 
     const exit = async () => {

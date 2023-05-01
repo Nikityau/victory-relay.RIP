@@ -37,7 +37,7 @@ const Auth = () => {
         setIsError(false)
         const token = user_data.auth_token;
 
-        history.replace(`/admin/${token}`)
+        history.replace(`/relay-admin/${token}`)
     }
 
 
